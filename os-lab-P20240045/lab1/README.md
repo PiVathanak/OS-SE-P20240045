@@ -34,7 +34,7 @@ This exercise demonstrated how Linux provides powerful command-line tools for ef
 
 <!-- SCREENSHOT REQUIREMENT: Show the terminal running the file manipulation commands (mkdir, touch, cp, mv, rm) or the final cat of your task2_file_commands.txt file. -->
 
-![alt text](../lab1/Image/Task2.png)
+![alt text](Images/Task2.png)
 
 ---
 
@@ -51,7 +51,7 @@ In contrast, the purge command completely removes the application including its 
 
 <!-- Insert your screenshot for Task 3 below: -->
 <!-- SCREENSHOT REQUIREMENT: Show the output of ls -ld /etc/mc after running apt-get remove (folder still exists) versus after running apt-get purge (folder is gone). -->
-![alt text](../lab1/Image/Task3.png)
+![alt text](Images/Task3.png)
 ---
 
 ## Task 4: Programs vs Processes (Single Process)
@@ -67,7 +67,7 @@ I then used the ps command to display the list of active processes, where I was 
 
 <!-- Insert your screenshot for Task 4 below: -->
 <!-- SCREENSHOT REQUIREMENT: Show the terminal where you ran sleep 120 & and the subsequent ps output showing the sleep process running. -->
-![alt text](../lab1/Image/Task4.png)
+![alt text](Images/Task4.png)
 ---
 
 ## Task 5: Installing Real Applications & Observing Multitasking
@@ -84,7 +84,7 @@ This demonstrated Linux’s multitasking capability, where multiple processes ca
 
 <!-- Insert your screenshot for Task 5 below: -->
 <!-- SCREENSHOT REQUIREMENT: Show the terminal ps output capturing the multiple background tasks (sleep and python3 server) running at the same time. -->
-![alt text](../lab1/Image/Task5.png)
+![alt text](Images/Task5.png)
 ---
 
 ## Task 6: Virtualization and Hypervisor Detection
@@ -99,4 +99,4 @@ The output indicated that the system is running on physical hardwaSe rather than
 
 <!-- Insert your screenshot for Task 6 below: -->
 <!-- SCREENSHOT REQUIREMENT: Show the terminal output of the systemd-detect-virt and lscpu commands. -->
-![alt text](../lab1/Image/Task6.png)
+![alt text](Images/Task6.png)
