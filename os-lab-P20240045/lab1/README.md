@@ -17,7 +17,7 @@ The uname -a command provided information about the Linux kernel version, archit
 
 These commands are useful for quickly determining system configuration and verifying the OS environment.
 <!-- SCREENSHOT REQUIREMENT: Show the terminal after running uname -a and lsb_release -a, or the contents of your task1_os_info.txt file. -->
-![alt text](../lab1/Image/Task1.png)
+![alt text](Images/Task1.png)
 ---
 
 ## Task 2: Essential Linux File and Directory Commands
