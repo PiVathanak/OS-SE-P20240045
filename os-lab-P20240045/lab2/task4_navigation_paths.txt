@@ -1,0 +1,30 @@
+=== Task 4: Navigation with Paths ===
+--- Absolute path to HR/policies ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/hr/policies
+leave_policy.txt
+remote_work.txt
+--- Up to hr/ ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/hr
+--- Relative path onboading/ ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/hr/onboarding
+checklist.txt
+welcome_guide.txt
+--- Sideways to engineering/frontend/ ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/engineering/frontend
+app_config.txt
+index.html
+styles.css
+--- Up two levels to techcorp/ ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp
+--- Absolute path to marketing/campaigns/ ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/marketing/campaigns
+q1_launch.txt
+social_media.txt
+--- cd - (back to previous directory) ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp
+--- Challenge Navigation ---
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/engineering/backend
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/marketing/assets
+/usr/bin
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/marketing/assets
+/home/vathanak/os-se-P20240045/os-lab-P20240045/lab2/techcorp/hr/onboarding
