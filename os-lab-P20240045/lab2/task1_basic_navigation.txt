@@ -1,0 +1,64 @@
+/home/vathanak
+total 136
+drwxr-x--- 26 vathanak vathanak  4096 Mar 14 01:49 .
+drwxr-xr-x  3 root     root      4096 Mar 10 06:59 ..
+-rw-------  1 vathanak vathanak 10592 Mar 17 03:01 .bash_history
+-rw-r--r--  1 vathanak vathanak   220 Mar 10 06:59 .bash_logout
+-rw-r--r--  1 vathanak vathanak  3944 Mar 12 08:14 .bashrc
+drwx------ 16 vathanak vathanak  4096 Mar 12 06:38 .cache
+drwxrwxr-x  3 vathanak vathanak  4096 Mar 14 02:21 clone
+drwxrwxr-x  2 vathanak vathanak  4096 Mar 10 07:23 Coding
+drwx------ 18 vathanak vathanak  4096 Mar 14 01:42 .config
+drwx------  3 vathanak vathanak  4096 Mar 12 07:10 .copilot
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Desktop
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Documents
+drwxrwxr-x  3 vathanak vathanak  4096 Mar 12 07:10 .dotnet
+drwxr-xr-x  4 vathanak vathanak  4096 Mar 17 02:53 Downloads
+drwxrwxr-x  7 vathanak vathanak  4096 Mar 12 05:57 .git
+-rw-rw-r--  1 vathanak vathanak    66 Mar 12 04:59 .gitconfig
+-rw-------  1 vathanak vathanak    20 Mar 12 05:45 .lesshst
+drwx------  3 vathanak vathanak  4096 Mar 10 03:05 .local
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Music
+drwxrwxr-x  4 vathanak vathanak  4096 Mar 12 06:33 os-se-P20240045
+drwxr-xr-x  3 vathanak vathanak  4096 Mar 12 05:30 Pictures
+drwx------  3 vathanak vathanak  4096 Mar 10 07:23 .pki
+-rw-r--r--  1 vathanak vathanak   807 Mar 10 06:59 .profile
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Public
+drwxrwxr-x  6 vathanak vathanak  4096 Mar 12 08:11 Robot_ws
+drwxrwxr-x  4 vathanak vathanak  4096 Mar 10 08:05 .ros
+drwxrwxr-x  6 vathanak vathanak  4096 Mar 10 07:46 ros2_humble
+drwx------  7 vathanak vathanak  4096 Mar 10 08:10 snap
+drwx------  2 vathanak vathanak  4096 Mar 17 02:21 .ssh
+-rw-r--r--  1 vathanak vathanak     0 Mar 10 07:26 .sudo_as_admin_successful
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Templates
+drwxr-xr-x  2 vathanak vathanak  4096 Mar 10 03:05 Videos
+drwxrwxr-x  4 vathanak vathanak  4096 Mar 10 07:23 .vscode
+--- Root directory (/) ---
+/
+bin
+boot
+cdrom
+dev
+etc
+home
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+swapfile
+sys
+tmp
+usr
+var
+--- Back to Home ---
+/
