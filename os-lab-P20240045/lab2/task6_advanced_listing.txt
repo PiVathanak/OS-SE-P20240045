@@ -1,0 +1,244 @@
+=== Task 6: Advanced Listing & Directory Audit ===
+--- Recursive Listing (ls -R) ---
+techcorp:
+engineering
+hr
+marketing
+
+techcorp/engineering:
+backend
+devops
+frontend
+
+techcorp/engineering/backend:
+app.js
+database.sql
+pipeline_backup.txt
+server_config.txt
+
+techcorp/engineering/devops:
+docker-compose.yml
+Dockerfile
+pipeline.txt
+security_audit.txt
+server_notice.txt
+
+techcorp/engineering/frontend:
+frontend_config.txt
+index.html
+styles.css
+
+techcorp/hr:
+onboarding
+policies
+
+techcorp/hr/onboarding:
+checklist.txt
+handbook.txt
+welcome_guide.txt
+
+techcorp/hr/policies:
+leave_policy.txt
+remote_work.txt
+
+techcorp/marketing:
+assets
+campaigns
+
+techcorp/marketing/assets:
+banner.jpg
+brochure.pdf
+logo_brief.txt
+logo.png
+
+techcorp/marketing/campaigns:
+q1_2026_launch.txt
+social_media.txt
+
+--- Sort by Size: engineering/ (ls -lS) ---
+total 4
+-rw-rw-r-- 1 vathanak vathanak 26 Mar 17 03:29 frontend_config.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 index.html
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 styles.css
+total 8
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 18 08:48 pipeline_backup.txt
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:29 server_config.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 app.js
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 database.sql
+total 12
+-rw-rw-r-- 1 vathanak vathanak 48 Mar 18 08:31 server_notice.txt
+-rw-rw-r-- 1 vathanak vathanak 34 Mar 18 08:44 security_audit.txt
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:30 pipeline.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 docker-compose.yml
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 Dockerfile
+
+--- Sort by Time: techcorp/ (ls -lt) ---
+total 8
+-rw-rw-r-- 1 vathanak vathanak 32 Mar 17 03:27 remote_work.txt
+-rw-rw-r-- 1 vathanak vathanak 39 Mar 17 03:27 leave_policy.txt
+total 8
+-rw-rw-r-- 1 vathanak vathanak 23 Mar 18 08:33 handbook.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:28 checklist.txt
+-rw-rw-r-- 1 vathanak vathanak 52 Mar 17 03:28 welcome_guide.txt
+total 8
+-rw-rw-r-- 1 vathanak vathanak 35 Mar 17 03:30 social_media.txt
+-rw-rw-r-- 1 vathanak vathanak 32 Mar 17 03:30 q1_2026_launch.txt
+
+--- Human-Readable (ls -lh) ---
+total 4.0K
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 banner.jpg
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 brochure.pdf
+-rw-rw-r-- 1 vathanak vathanak 22 Mar 18 08:32 logo_brief.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 logo.png
+total 12K
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 docker-compose.yml
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 Dockerfile
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:30 pipeline.txt
+-rw-rw-r-- 1 vathanak vathanak 34 Mar 18 08:44 security_audit.txt
+-rw-rw-r-- 1 vathanak vathanak 48 Mar 18 08:31 server_notice.txt
+
+--- Reverse Sort by Size (ls -rlS) ---
+total 8
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 database.sql
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 app.js
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:29 server_config.txt
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 18 08:48 pipeline_backup.txt
+
+--- Reverse Sort by Time (ls -rlt) ---
+total 8
+-rw-rw-r-- 1 vathanak vathanak 52 Mar 17 03:28 welcome_guide.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:28 checklist.txt
+-rw-rw-r-- 1 vathanak vathanak 23 Mar 18 08:33 handbook.txt
+
+--- Combined: Recursive + Human-Readable + Sort by Size (ls -lhRS) ---
+techcorp/:
+total 12K
+drwxrwxr-x 5 vathanak vathanak 4.0K Mar 17 03:27 engineering
+drwxrwxr-x 4 vathanak vathanak 4.0K Mar 17 03:27 hr
+drwxrwxr-x 4 vathanak vathanak 4.0K Mar 18 08:35 marketing
+
+techcorp/engineering:
+total 12K
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:49 backend
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:46 devops
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:54 frontend
+
+techcorp/engineering/backend:
+total 8.0K
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 18 08:48 pipeline_backup.txt
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:29 server_config.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 app.js
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 database.sql
+
+techcorp/engineering/devops:
+total 12K
+-rw-rw-r-- 1 vathanak vathanak 48 Mar 18 08:31 server_notice.txt
+-rw-rw-r-- 1 vathanak vathanak 34 Mar 18 08:44 security_audit.txt
+-rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:30 pipeline.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 docker-compose.yml
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 Dockerfile
+
+techcorp/engineering/frontend:
+total 4.0K
+-rw-rw-r-- 1 vathanak vathanak 26 Mar 17 03:29 frontend_config.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 index.html
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:29 styles.css
+
+techcorp/hr:
+total 8.0K
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:38 onboarding
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:46 policies
+
+techcorp/hr/onboarding:
+total 8.0K
+-rw-rw-r-- 1 vathanak vathanak 52 Mar 17 03:28 welcome_guide.txt
+-rw-rw-r-- 1 vathanak vathanak 23 Mar 18 08:33 handbook.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:28 checklist.txt
+
+techcorp/hr/policies:
+total 8.0K
+-rw-rw-r-- 1 vathanak vathanak 39 Mar 17 03:27 leave_policy.txt
+-rw-rw-r-- 1 vathanak vathanak 32 Mar 17 03:27 remote_work.txt
+
+techcorp/marketing:
+total 8.0K
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:37 assets
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:52 campaigns
+
+techcorp/marketing/assets:
+total 4.0K
+-rw-rw-r-- 1 vathanak vathanak 22 Mar 18 08:32 logo_brief.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 banner.jpg
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 brochure.pdf
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 logo.png
+
+techcorp/marketing/campaigns:
+total 8.0K
+-rw-rw-r-- 1 vathanak vathanak 35 Mar 17 03:30 social_media.txt
+-rw-rw-r-- 1 vathanak vathanak 32 Mar 17 03:30 q1_2026_launch.txt
+
+--- Challenge Investigation ---
+total 8
+-rw-rw-r-- 1 vathanak vathanak 23 Mar 18 08:33 handbook.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:28 checklist.txt
+-rw-rw-r-- 1 vathanak vathanak 52 Mar 17 03:28 welcome_guide.txt
+techcorp/marketing/:
+total 8.0K
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:37 assets
+drwxrwxr-x 2 vathanak vathanak 4.0K Mar 18 08:52 campaigns
+
+techcorp/marketing/assets:
+total 4.0K
+-rw-rw-r-- 1 vathanak vathanak 22 Mar 18 08:32 logo_brief.txt
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 banner.jpg
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 brochure.pdf
+-rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:31 logo.png
+
+techcorp/marketing/campaigns:
+total 8.0K
+-rw-rw-r-- 1 vathanak vathanak 35 Mar 17 03:30 social_media.txt
+-rw-rw-r-- 1 vathanak vathanak 32 Mar 17 03:30 q1_2026_launch.txt
+total 12
+4 -rw-rw-r-- 1 vathanak vathanak 48 Mar 18 08:31 server_notice.txt
+4 -rw-rw-r-- 1 vathanak vathanak 34 Mar 18 08:44 security_audit.txt
+4 -rw-rw-r-- 1 vathanak vathanak 29 Mar 17 03:30 pipeline.txt
+0 -rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 Dockerfile
+0 -rw-rw-r-- 1 vathanak vathanak  0 Mar 17 03:30 docker-compose.yml
+total 156K
+-rw-------  1 vathanak vathanak  20K Mar 18 08:34 .bash_history
+drwxr-x--- 29 vathanak vathanak 4.0K Mar 18 08:35 .
+drwxr-xr-x  3 root     root     4.0K Mar 10 06:59 ..
+drwxrwxr-x 16 vathanak vathanak 4.0K Mar 17 07:05 build
+drwx------ 17 vathanak vathanak 4.0K Mar 17 20:47 .cache
+drwxrwxr-x  3 vathanak vathanak 4.0K Mar 14 02:21 clone
+drwxrwxr-x  2 vathanak vathanak 4.0K Mar 10 07:23 Coding
+drwx------ 19 vathanak vathanak 4.0K Mar 17 20:49 .config
+drwx------  3 vathanak vathanak 4.0K Mar 12 07:10 .copilot
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Desktop
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Documents
+drwxrwxr-x  3 vathanak vathanak 4.0K Mar 12 07:10 .dotnet
+drwxr-xr-x  4 vathanak vathanak 4.0K Mar 18 08:22 Downloads
+drwxrwxr-x  7 vathanak vathanak 4.0K Mar 12 05:57 .git
+drwxrwxr-x 11 vathanak vathanak 4.0K Mar 17 07:05 install
+drwx------  3 vathanak vathanak 4.0K Mar 10 03:05 .local
+drwxrwxr-x  4 vathanak vathanak 4.0K Mar 17 07:05 log
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Music
+drwxrwxr-x  4 vathanak vathanak 4.0K Mar 12 06:33 os-se-P20240045
+drwxr-xr-x  4 vathanak vathanak 4.0K Mar 17 03:07 Pictures
+drwx------  3 vathanak vathanak 4.0K Mar 10 07:23 .pki
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Public
+drwxrwxr-x  6 vathanak vathanak 4.0K Mar 12 08:11 Robot_ws
+drwxrwxr-x  4 vathanak vathanak 4.0K Mar 10 08:05 .ros
+drwxrwxr-x  6 vathanak vathanak 4.0K Mar 10 07:46 ros2_humble
+drwx------  7 vathanak vathanak 4.0K Mar 10 08:10 snap
+drwx------  2 vathanak vathanak 4.0K Mar 17 02:21 .ssh
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Templates
+drwxr-xr-x  2 vathanak vathanak 4.0K Mar 10 03:05 Videos
+drwxrwxr-x  4 vathanak vathanak 4.0K Mar 10 07:23 .vscode
+-rw-r--r--  1 vathanak vathanak 3.9K Mar 18 08:21 .bashrc
+-rw-r--r--  1 vathanak vathanak  807 Mar 10 06:59 .profile
+-rw-r--r--  1 vathanak vathanak  220 Mar 10 06:59 .bash_logout
+-rw-rw-r--  1 vathanak vathanak   66 Mar 12 04:59 .gitconfig
+-rw-------  1 vathanak vathanak   20 Mar 17 03:09 .lesshst
+-rw-rw-r--  1 vathanak vathanak    0 Mar 18 08:35 os-se-
+-rw-r--r--  1 vathanak vathanak    0 Mar 10 07:26 .sudo_as_admin_successful
