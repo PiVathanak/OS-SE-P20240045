@@ -1,23 +1,18 @@
-/* file_reader_sys.c */
-#include <fcntl.h>
-#include <unistd.h>
+/* file_reader_lib.c */
+#include <stdio.h>
 
 int main() {
+    FILE *fp = fopen("output.txt", "r");
+    if (fp == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
     char buffer[256];
-    ssize_t bytesRead;
-    // YOUR CODE HERE
-    // 1. Open "output.txt" for reading using open()
-    int fd = open("output.txt", O_RDONLY);
-    if(fd < 0){
-        write(1,"Error opening file\n", 19);
-        return 1;   
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        printf("%s", buffer);
     }
-    // 2. Read content into buffer using read() in a loop
-    while((bytesRead = read(fd,buffer,sizeof(buffer))) > 0){    
-    // 3. Write the content to the terminal (fd 1) using write()
-        write(1, buffer, bytesRead); 
-    }
-    // 4. Close the file using close()
-    close(fd);
+
+    fclose(fp);
     return 0;
 }
