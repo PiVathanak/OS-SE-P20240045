@@ -144,29 +144,29 @@ I observed that the library version usually makes more system calls than the dir
 <!-- Screenshot: strace -e trace=openat,read,write,close ./file_creator_lib -->
 <!-- IMPORTANT: Highlight/annotate the key system calls in your screenshot -->
 
-![strace - Library version File Creator](screenshots/strace.png)
+![strace - Library version File Creator](screenshots/strace_lib_creator.png)
 
 ### strace Output — System Call Version (File Creator)
 
 <!-- Screenshot: strace -e trace=openat,read,write,close ./file_creator_sys -->
 <!-- IMPORTANT: Highlight/annotate the key system calls in your screenshot -->
 
-![strace - System call version File Creator](screenshots/strace.png)
+![strace - System call version File Creator](screenshots/strace_sys_creator.png)
 
 ### strace Output — Library Version (File Reader or Dir Listing)
 
-![strace - Library version](screenshots/strace.png)
+![strace - Library version](screenshots/strace_lib_reader.png)
 
 ### strace Output — System Call Version (File Reader or Dir Listing)
 
-![strace - System call version](screenshots/strace.png)
+![strace - System call version](screenshots/strace_sys_reader.png)
 
 ### strace -c Summary Comparison
 
 <!-- Screenshot of `strace -c` output for both versions -->
 
-![strace summary - Library](screenshots/strace.png)
-![strace summary - Syscall](screenshots/strace.png)
+![strace summary - Library](screenshots/strace_summary_lib.png)
+![strace summary - Syscall](screenshots/strace_summary_sys.png)
 
 ### Questions
 
