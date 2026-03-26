@@ -1,0 +1,109 @@
+=== Task 2: Hard Links and Symbolic Links ===
+--- Original file ---
+286578 -rw-rw-r-- 1 vathanak vathanak 35 Mar 26 11:06 config_original.txt
+TechCorp Global Configuration v3.1
+
+--- After creating hard link ---
+286578 -rw-rw-r-- 2 vathanak vathanak 35 Mar 26 11:06 config_hardlink.txt
+286578 -rw-rw-r-- 2 vathanak vathanak 35 Mar 26 11:06 config_original.txt
+
+--- Content via hard link ---
+TechCorp Global Configuration v3.1
+
+--- After creating symbolic link ---
+286578 -rw-rw-r-- 2 vathanak vathanak 35 Mar 26 11:06 config_hardlink.txt
+286578 -rw-rw-r-- 2 vathanak vathanak 35 Mar 26 11:06 config_original.txt
+286598 lrwxrwxrwx 1 vathanak vathanak 19 Mar 26 11:11 config_symlink.txt -> config_original.txt
+
+--- Content via hard link ---
+TechCorp Global Configuration v3.1
+--- Content via symbolic link ---
+TechCorp Global Configuration v3.1
+
+--- After modifying original ---
+Hard link content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+
+--- After deleting original file ---
+Hard link still works:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink is broken:
+cat: config_symlink.txt: No such file or directory
+286578 -rw-rw-r-- 1 vathanak vathanak 72 Mar 26 11:13 config_hardlink.txt
+286598 lrwxrwxrwx 1 vathanak vathanak 19 Mar 26 11:11 config_symlink.txt -> config_original.txt
+
+--- stat on hard link ---
+  File: config_hardlink.txt
+  Size: 72        	Blocks: 8          IO Block: 4096   regular file
+Device: 10306h/66310d	Inode: 286578      Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/vathanak)   Gid: ( 1000/vathanak)
+Access: 2026-03-26 11:17:05.834835747 -0400
+Modify: 2026-03-26 11:13:31.529038792 -0400
+Change: 2026-03-26 11:16:38.017833647 -0400
+ Birth: 2026-03-26 11:06:12.428897202 -0400
+--- readlink on symlink ---
+config_original.txt
+
+--- Symlink to directory ---
+lrwxrwxrwx 1 vathanak vathanak 17 Mar 26 11:20 web_shortcut -> projects/frontend
+index.html
+
+--- Real-world symlinks in /usr/bin ---
+lrwxrwxrwx 1 root root      10 Mar 10 06:57 /usr/bin/python3 -> python3.10
+-rwxr-xr-x 1 root root 5937704 Mar  3 06:56 /usr/bin/python3.10
+lrwxrwxrwx 1 root root      34 Mar  3 06:56 /usr/bin/python3.10-config -> x86_64-linux-gnu-python3.10-config
+-rwxr-xr-x 1 root root     979 Mar 17  2022 /usr/bin/python3.10-coverage
+lrwxrwxrwx 1 root root      17 Aug  8  2024 /usr/bin/python3-config -> python3.10-config
+-rwxr-xr-x 1 root root     973 Mar 17  2022 /usr/bin/python3-coverage
+-rwxr-xr-x 1 root root    2555 Feb 27  2021 /usr/bin/python-argcomplete-check-easy-install-script3
+-rwxr-xr-x 1 root root     314 Feb 27  2021 /usr/bin/python-argcomplete-tcsh3
+lrwxrwxrwx 1 root root 24 Mar 10 06:57 /usr/bin/editor -> /etc/alternatives/editor
+--- Symlinks in /etc/alternatives ---
+total 52
+drwxr-xr-x   2 root root 12288 Mar 19 07:38 .
+drwxr-xr-x 142 root root 12288 Mar 26 06:24 ..
+lrwxrwxrwx   1 root root    21 Mar 10 08:04 aclocal -> /usr/bin/aclocal-1.16
+lrwxrwxrwx   1 root root    37 Mar 10 08:04 aclocal.1.gz -> /usr/share/man/man1/aclocal-1.16.1.gz
+lrwxrwxrwx   1 root root    23 Mar 10 06:57 arptables -> /usr/sbin/arptables-nft
+lrwxrwxrwx   1 root root    31 Mar 10 06:57 arptables-restore -> /usr/sbin/arptables-nft-restore
+lrwxrwxrwx   1 root root    28 Mar 10 06:57 arptables-save -> /usr/sbin/arptables-nft-save
+lrwxrwxrwx   1 root root    22 Mar 10 08:04 automake -> /usr/bin/automake-1.16
+lrwxrwxrwx   1 root root    38 Mar 10 08:04 automake.1.gz -> /usr/share/man/man1/automake-1.16.1.gz
+lrwxrwxrwx   1 root root    13 Mar 10 06:57 awk -> /usr/bin/mawk
+lrwxrwxrwx   1 root root    29 Mar 10 06:57 awk.1.gz -> /usr/share/man/man1/mawk.1.gz
+lrwxrwxrwx   1 root root    69 Mar 10 07:45 blas.pc-x86_64-linux-gnu -> /usr/lib/x86_64-linux-gnu/openblas-pthread/pkgconfig/blas-openblas.pc
+lrwxrwxrwx   1 root root    38 Mar 10 06:57 builtins.7.gz -> /usr/share/man/man7/bash-builtins.7.gz
+lrwxrwxrwx   1 root root    12 Mar 10 07:32 bzr -> /usr/bin/brz
+lrwxrwxrwx   1 root root    28 Mar 10 07:32 bzr.1.gz -> /usr/share/man/man1/brz.1.gz
+lrwxrwxrwx   1 root root    12 Mar 10 07:32 c++ -> /usr/bin/g++
+lrwxrwxrwx   1 root root    28 Mar 10 07:32 c++.1.gz -> /usr/share/man/man1/g++.1.gz
+lrwxrwxrwx   1 root root    16 Mar 10 07:32 c89 -> /usr/bin/c89-gcc
+lrwxrwxrwx   1 root root    32 Mar 10 07:32 c89.1.gz -> /usr/share/man/man1/c89-gcc.1.gz
+--- Challenge Links ---
+--- 2a ---
+total 24
+286578 -rw-rw-r-- 1 vathanak vathanak   72 Mar 26 11:13 config_hardlink.txt
+286598 lrwxrwxrwx 1 vathanak vathanak   19 Mar 26 11:11 config_symlink.txt -> config_original.txt
+286608 -rw-rw-r-- 3 vathanak vathanak   35 Mar 26 11:28 eng_data.txt
+286608 -rw-rw-r-- 3 vathanak vathanak   35 Mar 26 11:28 hr_data.txt
+286602 drwxrwxr-x 3 vathanak vathanak 4096 Mar 26 11:20 projects
+286608 -rw-rw-r-- 3 vathanak vathanak   35 Mar 26 11:28 shared_data.txt
+286607 -rw-rw-r-- 1 vathanak vathanak 1273 Mar 26 11:32 task2_links.txt
+286606 lrwxrwxrwx 1 vathanak vathanak   17 Mar 26 11:20 web_shortcut -> projects/frontend
+--2b--
+index.html
+Shared resource across departments
+Shared resource across departments
+--2c--
+total 16
+286578 -rw-rw-r-- 1 vathanak vathanak   72 Mar 26 11:13 config_hardlink.txt
+286598 lrwxrwxrwx 1 vathanak vathanak   19 Mar 26 11:11 config_symlink.txt -> config_original.txt
+286608 -rw-rw-r-- 2 vathanak vathanak   35 Mar 26 11:28 eng_data.txt
+286608 -rw-rw-r-- 2 vathanak vathanak   35 Mar 26 11:28 hr_data.txt
+286602 drwxrwxr-x 3 vathanak vathanak 4096 Mar 26 11:20 projects
+286606 lrwxrwxrwx 1 vathanak vathanak   17 Mar 26 11:20 web_shortcut -> projects/frontend
