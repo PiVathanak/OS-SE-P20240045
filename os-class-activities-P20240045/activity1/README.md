@@ -198,7 +198,7 @@ A system call is the direct request made to the kernel to perform an operating s
 
 > 📸 Screenshot of `/proc/self/status`, `/proc/self/maps`, `ps aux`:
 
-![Process Info](screenshots/task4_system_info2.png)
+![Process Info](screenshots/task4_process_info.png)
 
 ### Kernel Modules
 
