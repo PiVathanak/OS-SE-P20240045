@@ -1,0 +1,10 @@
+total 32
+drwxrwxr-x 2 vathanak vathanak  4096 Mar 31 11:21 .
+drwxrwxr-x 3 vathanak vathanak  4096 Mar 31 11:16 ..
+-rwxrwxr-x 1 vathanak vathanak 16400 Mar 31 11:21 forkchild
+-rw-rw-r-- 1 vathanak vathanak  1789 Mar 31 11:20 forkchild.c
+-rw-rw-r-- 1 vathanak vathanak     0 Mar 31 11:21 result_forkchild.txt
+Parent process (PID: 9474) — creating child...
+Parent: waiting for child (PID: 9475) to finish...
+Parent: child exited with status 0
+Parent: done.

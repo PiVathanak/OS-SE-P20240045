@@ -1,0 +1,20 @@
+ 1717  clear
+ 1718  cat result_forkchild.txt
+ 1719  ./forkchild
+ 1720  history | tail -n 20 > command_used_forkchild.txt
+ 1721  clear
+ 1722  cd ..
+ 1723  mkdir task2
+ 1724  cd task2
+ 1725  nano winprocess.c
+ 1726  cd ..
+ 1727  mkdir task3_shm
+ 1728  touch shm-producer.c
+ 1729  cd task3_shm/
+ 1730  nano shm-consumer.c 
+ 1731  gcc -o shm-producer shm-producer.c -lrt
+ 1732  gcc -o shm-consumer shm-consumer.c -lrt
+ 1733  ./shm-producer
+ 1734  ./shm-consumer > result-shm-ipc.txt
+ 1735  cat result-shm-ipc.txt
+ 1736  history | tail -n 20 > command_used_shm.txt

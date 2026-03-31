@@ -1,0 +1,20 @@
+ 1731  gcc -o shm-producer shm-producer.c -lrt
+ 1732  gcc -o shm-consumer shm-consumer.c -lrt
+ 1733  ./shm-producer
+ 1734  ./shm-consumer > result-shm-ipc.txt
+ 1735  cat result-shm-ipc.txt
+ 1736  history | tail -n 20 > command_used_shm.txt
+ 1737  cd..
+ 1738  cd ..
+ 1739  clear
+ 1740  mkdir task4_mq
+ 1741  cd task4_mq/
+ 1742  nano common.h
+ 1743  nano sender.c
+ 1744  nano receiver.c
+ 1745  gcc -o sender sender.c -lrt
+ 1746  gcc -o receiver receiver.c -lrt
+ 1747  ./sender
+ 1748  ./receiver > result-mq-ipc.txt
+ 1749  cat result-mq-ipc.txt
+ 1750  history | tail -n 20 > command_used_mq.txt

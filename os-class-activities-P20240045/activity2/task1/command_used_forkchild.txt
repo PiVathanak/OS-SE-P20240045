@@ -1,0 +1,20 @@
+ 1701  cd
+ 1702  clea
+ 1703  clear
+ 1704  history
+ 1705  clear
+ 1706  ls
+ 1707  cd os-class-activities-P20240045/
+ 1708  mkdir activity2
+ 1709  cd activity2
+ 1710  mkdir task1
+ 1711  cd task1
+ 1712  clear
+ 1713  nano forkchild.c
+ 1714  gcc -o forkchild forkchild.c
+ 1715* ./
+ 1716  cat result_forkchild.txt
+ 1717  clear
+ 1718  cat result_forkchild.txt
+ 1719  ./forkchild
+ 1720  history | tail -n 20 > command_used_forkchild.txt
