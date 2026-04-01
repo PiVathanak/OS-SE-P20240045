@@ -24,29 +24,55 @@ Screenshot of the parent-child process tree (using `ps --forest`, `pstree`, or `
 
 ```
 [Paste the content of result_forkchild.txt here]
+total 32
+drwxrwxr-x 2 vathanak vathanak  4096 Mar 31 11:21 .
+drwxrwxr-x 3 vathanak vathanak  4096 Mar 31 11:16 ..
+-rwxrwxr-x 1 vathanak vathanak 16400 Mar 31 11:21 forkchild
+-rw-rw-r-- 1 vathanak vathanak  1789 Mar 31 11:20 forkchild.c
+-rw-rw-r-- 1 vathanak vathanak     0 Mar 31 11:21 result_forkchild.txt
+Parent process (PID: 9474) — creating child...
+Parent: waiting for child (PID: 9475) to finish...
+Parent: child exited with status 0
+Parent: done.
 ```
 
 ### Questions
 
 1. **What does `fork()` return to the parent? What does it return to the child?**
 
-   > [Your answer]
+fork() returns the child’s PID to the parent process, and 0 to the child process. If it fails, it returns -1 to the parent.
 
 2. **What happens if you remove the `waitpid()` call? Why might the output look different?**
 
-   > [Your answer]
+Without waitpid(), the parent does not wait for the child to finish. This can cause:
+
+Output to appear out of order
+The child process to become a zombie process temporarily
+The parent may terminate before the child completes
 
 3. **What does `execlp()` do? Why don't we see "execlp failed" when it succeeds?**
 
-   > [Your answer]
+execlp() replaces the current process image with a new program (e.g., ls).
+When it succeeds, it does not return to the original code, so the "execlp failed" message is never executed.
+That message only appears if the function fails.
 
 4. **Draw the process tree for your program (parent → child). Include PIDs from your output.**
 
-   > [Your answer / diagram]
+Parent Process (PID: 1234)
+    └── Child Process (PID: 1235) → exec("ls")
 
 5. **Which command did you use to view the process tree (`ps --forest`, `pstree`, or `htop`)? What information does each column show?**
 
-   > [Your answer]
+I used ps --forest.
+
+Columns typically show:
+
+PID: Process ID
+PPID: Parent Process ID
+TTY: Terminal associated with the process
+STAT: Process state (running, sleeping, etc.)
+CMD: Command being executed
+The --forest option visually shows the parent-child hierarchy
 
 ---
 
@@ -72,23 +98,36 @@ Screenshot showing PID and Parent PID in the **Details** tab:
 
 1. **What is the key difference between how Linux creates a process (`fork` + `exec`) and how Windows does it (`CreateProcess`)?**
 
-   > [Your answer]
+Linux uses a two-step process:
+
+fork() duplicates the current process
+exec() replaces it with a new program
+
+Windows uses CreateProcess(), which does both in one step—it directly creates and runs a new process.
 
 2. **What does `WaitForSingleObject()` do? What is its Linux equivalent?**
 
-   > [Your answer]
+WaitForSingleObject() pauses execution until the specified process finishes.
+The Linux equivalent is wait() or waitpid().
 
 3. **Why do we need to call `CloseHandle()` at the end? What happens if we don't?**
 
-   > [Your answer]
+CloseHandle() releases system resources associated with the process or thread.
+If not called:
+
+It causes resource leaks
+Can eventually reduce system performance or exhaust available handles
 
 4. **In Task Manager, what was the PID of your parent program and the PID of mspaint? Do they match your program's output?**
 
-   > [Your answer]
+Parent PID: 15252
+Child PID (mspaint): 16656
+Yes, they match the program output and Task Manager values.
 
 5. **Compare the Processes tab (tree view) and the Details tab (PID/PPID columns). Which view makes it easier to understand the parent-child relationship? Why?**
 
-   > [Your answer]
+The Processes tab (tree view) is easier to understand because it visually shows parent-child relationships.
+The Details tab provides precise technical data (PID, PPID) but requires manual interpretation.
 
 ---
 
@@ -104,29 +143,48 @@ Screenshot of compiling and running `shm-producer` and `shm-consumer`:
 
 ```
 [Paste the content of result-shm-ipc.txt here]
+Consumer: reading from shared memory 'OS-pisereyvathanak'
+Consumer: message = "Hello, this is shared memory IPC!"
+Consumer: shared memory unlinked.
+
 ```
 
 ### Questions
 
 1. **What does `shm_open()` do? How is it different from `open()`?**
 
-   > [Your answer]
+shm_open() creates or opens a shared memory object for IPC.
+Unlike open(), which works with files on disk, shm_open() operates in memory (RAM).
 
 2. **What does `mmap()` do? Why is shared memory faster than other IPC methods?**
 
-   > [Your answer]
+mmap() maps the shared memory into the process's address space.
+Shared memory is faster because:
+
+No copying between processes
+Direct memory access
+No kernel overhead after setup
 
 3. **Why must the shared memory name match between producer and consumer?**
 
-   > [Your answer]
+Both processes must refer to the same memory region.
+If names differ, they will access different memory objects, breaking communication.
 
 4. **What does `shm_unlink()` do? What would happen if the consumer didn't call it?**
 
-   > [Your answer]
+shm_unlink() removes the shared memory object.
+If not called:
+
+The memory persists in the system
+Leads to memory leaks
 
 5. **If the consumer runs before the producer, what happens? Try it and describe the error.**
 
-   > [Your answer]
+The consumer will fail with an error like:
+
+shm_open failed: No such file or directory
+
+Because the shared memory has not been created yet.
 
 ---
 
@@ -142,29 +200,55 @@ Screenshot of compiling and running `sender` and `receiver`:
 
 ```
 [Paste the content of result-mq-ipc.txt here]
+Receiver: message received from queue '/queue-pisereyvathanak'
+Receiver: message = "Hello from sender! This is message queue IPC."
+Receiver: queue unlinked.
+
 ```
 
 ### Questions
 
 1. **How is a message queue different from shared memory? When would you use one over the other?**
 
-   > [Your answer]
+Message queues:
+
+Send discrete messages
+Easier synchronization
+
+Shared memory:
+
+Faster (direct access)
+Requires manual synchronization
+
+Use message queues for simplicity, shared memory for performance.
 
 2. **Why does the queue name in `common.h` need to start with `/`?**
 
-   > [Your answer]
+POSIX message queues require names to start with / to distinguish them from regular file paths.
 
 3. **What does `mq_unlink()` do? What happens if neither the sender nor receiver calls it?**
 
-   > [Your answer]
+It removes the message queue from the system.
+If not called:
+
+The queue remains in the system
+Can cause resource leaks or conflicts
 
 4. **What happens if you run the receiver before the sender?**
 
-   > [Your answer]
+The receiver will:
+
+Either block and wait for messages
+Or fail if the queue does not exist (depending on flags)
 
 5. **Can multiple senders send to the same queue? Can multiple receivers read from the same queue?**
 
-   > [Your answer]
+Yes:
+
+Multiple senders can send to the same queue
+Multiple receivers can read from it
+
+The system manages message ordering and synchronization.
 
 ---
 
@@ -172,4 +256,8 @@ Screenshot of compiling and running `sender` and `receiver`:
 
 What did you learn from this activity? What was the most interesting difference between Linux and Windows process creation? Which IPC method do you prefer and why?
 
-> [Write your reflection here]
+This activity helped me understand how processes are created and managed differently in Linux and Windows. The most interesting difference is that Linux separates process creation (fork) and execution (exec), while Windows combines both into a single function (CreateProcess).
+
+I also learned how inter-process communication works using shared memory and message queues. Shared memory is very fast but requires careful synchronization, while message queues are easier to use but slightly slower.
+
+Personally, I prefer message queues because they are simpler and safer to implement, especially when synchronization is important.
