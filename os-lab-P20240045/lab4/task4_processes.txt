@@ -1,0 +1,235 @@
+=== Task 4: Process Management ===
+--- Current processes (your user) ---
+    PID TTY          TIME CMD
+   1505 ?        00:00:00 systemd
+   1506 ?        00:00:00 (sd-pam)
+   1512 ?        00:00:00 pipewire
+   1513 ?        00:00:00 pipewire-media-
+   1514 ?        00:00:00 pulseaudio
+   1524 ?        00:00:00 gnome-keyring-d
+   1536 ?        00:00:00 dbus-daemon
+   1555 ?        00:00:00 xdg-document-po
+   1558 ?        00:00:00 xdg-permission-
+   1585 tty2     00:00:00 gdm-wayland-ses
+   1588 tty2     00:00:00 gnome-session-b
+   1635 ?        00:00:00 gnome-session-c
+   1646 ?        00:00:00 gvfsd
+   1653 ?        00:00:00 gvfsd-fuse
+   1655 ?        00:00:00 gnome-session-b
+   1675 ?        00:00:00 at-spi-bus-laun
+   1681 ?        00:00:00 dbus-daemon
+   1684 ?        00:05:05 gnome-shell
+   1740 ?        00:00:00 gnome-shell-cal
+   1747 ?        00:00:00 evolution-sourc
+   1752 ?        00:00:00 gvfs-udisks2-vo
+   1754 ?        00:00:00 goa-daemon
+   1760 ?        00:00:00 evolution-calen
+   1764 ?        00:00:00 gvfs-goa-volume
+   1773 ?        00:00:00 goa-identity-se
+   1777 ?        00:00:00 gvfs-gphoto2-vo
+   1788 ?        00:00:00 dconf-service
+   1789 ?        00:00:00 evolution-addre
+   1795 ?        00:00:00 gvfs-afc-volume
+   1805 ?        00:00:00 gvfs-mtp-volume
+   1817 ?        00:00:00 gvfsd-trash
+   1828 ?        00:00:00 gjs
+   1831 ?        00:00:00 at-spi2-registr
+   1847 ?        00:00:00 sh
+   1848 ?        00:00:00 gsd-a11y-settin
+   1849 ?        00:00:00 gsd-color
+   1851 ?        00:00:07 ibus-daemon
+   1852 ?        00:00:00 gsd-datetime
+   1854 ?        00:00:00 gsd-housekeepin
+   1857 ?        00:00:00 gsd-keyboard
+   1863 ?        00:00:00 gsd-media-keys
+   1865 ?        00:00:00 gsd-power
+   1869 ?        00:00:00 gsd-print-notif
+   1870 ?        00:00:00 gsd-rfkill
+   1872 ?        00:00:00 gsd-screensaver
+   1876 ?        00:00:00 gsd-sharing
+   1883 ?        00:00:00 evolution-alarm
+   1886 ?        00:00:00 gsd-smartcard
+   1898 ?        00:00:00 gsd-sound
+   1903 ?        00:00:00 gsd-wacom
+   1907 ?        00:00:00 gsd-disk-utilit
+   1966 ?        00:00:00 ibus-dconf
+   1968 ?        00:00:02 ibus-extension-
+   1971 ?        00:00:00 ibus-portal
+   2008 ?        00:00:02 snap-store
+   2015 ?        00:00:00 gsd-printer
+   2016 ?        00:00:02 ibus-engine-sim
+   2116 ?        00:00:00 tracker-miner-f
+   2119 ?        00:00:00 xdg-desktop-por
+   2124 ?        00:00:00 xdg-desktop-por
+   2139 ?        00:00:00 gjs
+   2185 ?        00:00:00 xdg-desktop-por
+   2217 ?        00:00:01 gjs
+   2268 ?        00:00:00 gvfsd-metadata
+   2308 ?        00:00:00 snapd-desktop-i
+   2374 ?        00:00:00 snapd-desktop-i
+   4051 ?        00:00:26 Xwayland
+   4096 ?        00:00:00 gsd-xsettings
+   4142 ?        00:00:00 ibus-x11
+   4428 ?        00:00:12 telegram-deskto
+   4779 ?        00:00:00 update-notifier
+   5224 ?        00:01:43 chrome
+   5228 ?        00:00:00 cat
+   5229 ?        00:00:00 cat
+   5231 ?        00:00:00 chrome_crashpad
+   5233 ?        00:00:00 chrome_crashpad
+   5239 ?        00:00:00 chrome
+   5240 ?        00:00:00 chrome
+   5242 ?        00:00:00 chrome
+   5288 ?        00:01:01 chrome
+   5290 ?        00:00:06 chrome
+   5303 ?        00:00:00 chrome
+   5337 ?        00:02:15 chrome
+   5368 ?        00:00:01 chrome
+   5523 ?        00:00:00 gnome-terminal
+   5526 ?        00:00:00 gnome-terminal.
+   5531 ?        00:00:23 gnome-terminal-
+   5549 pts/0    00:00:00 bash
+   5917 ?        00:00:47 code
+   5921 ?        00:00:00 code
+   5923 ?        00:00:00 code
+   5949 ?        00:00:00 chrome_crashpad
+   6023 ?        00:00:01 code
+   6146 ?        00:02:38 code
+   6192 ?        00:00:37 code
+   6255 ?        00:00:04 code
+   6304 ?        00:00:01 code
+   6330 ?        00:00:14 code
+   6344 ?        00:00:03 code
+   6441 ?        00:00:00 code
+   6988 ?        00:01:12 chrome
+   7028 ?        00:00:00 chrome
+   7045 ?        00:00:00 chrome
+   7066 ?        00:00:00 chrome
+   8284 ?        00:00:03 chrome
+   8655 pts/0    00:00:00 ps
+--- All processes (snapshot) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0 166888 12244 ?        Ss   08:38   0:01 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    08:38   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    08:38   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/R-rcu_g]
+root           5  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/R-rcu_p]
+root           6  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/R-slub_]
+root           7  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/R-netns]
+root           9  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/0:0H-events_highpri]
+root          12  0.0  0.0      0     0 ?        I<   08:38   0:00 [kworker/R-mm_pe]
+root          13  0.0  0.0      0     0 ?        I    08:38   0:00 [rcu_tasks_kthread]
+root          14  0.0  0.0      0     0 ?        I    08:38   0:00 [rcu_tasks_rude_kthread]
+root          15  0.0  0.0      0     0 ?        I    08:38   0:00 [rcu_tasks_trace_kthread]
+root          16  0.0  0.0      0     0 ?        S    08:38   0:00 [ksoftirqd/0]
+root          17  0.1  0.0      0     0 ?        I    08:38   0:04 [rcu_preempt]
+root          18  0.0  0.0      0     0 ?        S    08:38   0:00 [migration/0]
+root          19  0.0  0.0      0     0 ?        S    08:38   0:00 [idle_inject/0]
+root          20  0.0  0.0      0     0 ?        S    08:38   0:00 [cpuhp/0]
+root          21  0.0  0.0      0     0 ?        S    08:38   0:00 [cpuhp/2]
+root          22  0.0  0.0      0     0 ?        S    08:38   0:00 [idle_inject/2]
+--- Process tree ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           2       0  0 08:38 ?        00:00:00 [kthreadd]
+root           3       2  0 08:38 ?        00:00:00  \_ [pool_workqueue_release]
+root           4       2  0 08:38 ?        00:00:00  \_ [kworker/R-rcu_g]
+root           5       2  0 08:38 ?        00:00:00  \_ [kworker/R-rcu_p]
+root           6       2  0 08:38 ?        00:00:00  \_ [kworker/R-slub_]
+root           7       2  0 08:38 ?        00:00:00  \_ [kworker/R-netns]
+root           9       2  0 08:38 ?        00:00:00  \_ [kworker/0:0H-events_highpri]
+root          12       2  0 08:38 ?        00:00:00  \_ [kworker/R-mm_pe]
+root          13       2  0 08:38 ?        00:00:00  \_ [rcu_tasks_kthread]
+root          14       2  0 08:38 ?        00:00:00  \_ [rcu_tasks_rude_kthread]
+root          15       2  0 08:38 ?        00:00:00  \_ [rcu_tasks_trace_kthread]
+root          16       2  0 08:38 ?        00:00:00  \_ [ksoftirqd/0]
+root          17       2  0 08:38 ?        00:00:04  \_ [rcu_preempt]
+root          18       2  0 08:38 ?        00:00:00  \_ [migration/0]
+root          19       2  0 08:38 ?        00:00:00  \_ [idle_inject/0]
+root          20       2  0 08:38 ?        00:00:00  \_ [cpuhp/0]
+root          21       2  0 08:38 ?        00:00:00  \_ [cpuhp/2]
+root          22       2  0 08:38 ?        00:00:00  \_ [idle_inject/2]
+root          23       2  0 08:38 ?        00:00:00  \_ [migration/2]
+root          24       2  0 08:38 ?        00:00:00  \_ [ksoftirqd/2]
+root          26       2  0 08:38 ?        00:00:00  \_ [kworker/2:0H-events_highpri]
+root          27       2  0 08:38 ?        00:00:00  \_ [cpuhp/4]
+root          28       2  0 08:38 ?        00:00:00  \_ [idle_inject/4]
+root          29       2  0 08:38 ?        00:00:00  \_ [migration/4]
+root          30       2  0 08:38 ?        00:00:00  \_ [ksoftirqd/4]
+root          32       2  0 08:38 ?        00:00:00  \_ [kworker/4:0H-events_highpri]
+root          33       2  0 08:38 ?        00:00:00  \_ [cpuhp/6]
+root          34       2  0 08:38 ?        00:00:00  \_ [idle_inject/6]
+root          35       2  0 08:38 ?        00:00:00  \_ [migration/6]
+--- Top 10 CPU consumers (via ps, not top) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+vathanak    8710 29.6  1.6 1462038584 270168 ?   Sl   09:28   0:02 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --extension-process --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=79 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=3035746073 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13547535331691710672,764199496523351141,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190709060338177565
+vathanak    1684 10.6  1.8 6375248 300160 ?      Ssl  08:38   5:22 /usr/bin/gnome-shell
+vathanak    6146  5.9  2.3 1463373172 370588 ?   Sl   08:43   2:42 /snap/code/231/usr/share/code/code --type=zygote --no-sandbox
+vathanak    5337  4.8  1.7 1464051208 283908 ?   Sl   08:39   2:21 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=114272288 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5992501168523388633,16428808282473275619,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190708990997080739
+vathanak    5224  3.6  2.6 51243496 426668 ?     SLl  08:39   1:47 /opt/google/chrome/chrome https://github.com/RathpiseyAlpha/ITC-OS-2026/blob/main/labs/lab1/lab1-instruction.md
+vathanak    6988  3.3  1.9 1460089704 305440 ?   Sl   08:52   1:12 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=27 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=894268606 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,16944389747839124448,10631284407041746795,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190709011612001417
+vathanak    5288  2.1  1.2 51564476 200820 ?     Sl   08:39   1:02 /opt/google/chrome/chrome --type=gpu-process --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --metrics-shmem-handle=4,i,10948078503213503096,5120575532336931072,262144 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190708988185955192
+vathanak    5917  1.7  1.2 1461480444 195308 ?   SLsl 08:43   0:48 /snap/code/231/usr/share/code/code --no-sandbox --force-user-env --ozone-platform=x11
+vathanak    6192  1.4  0.7 34028516 118588 ?     Sl   08:43   0:38 /proc/self/exe --type=gpu-process --disable-gpu-sandbox --no-sandbox --ozone-platform=x11 --crashpad-handler-pid=5949 --enable-crash-reporter=e1f950c0-43a6-42eb-99eb-e4692cd99744,no_channel --user-data-dir=/home/vathanak/.config/Code --gpu-preferences=UAAAAAAAAAAgAAAEAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --shared-files --field-trial-handle=3,i,8361800169856722217,16824466971579493754,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708993808206286
+vathanak    5531  0.9  0.3 561296 60008 ?        Ssl  08:40   0:26 /usr/libexec/gnome-terminal-server
+--- Top 10 memory consumers ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+vathanak    4428  0.4  2.7 1425084 442416 ?      SLl  08:39   0:13 /snap/telegram-desktop/6908/usr/bin/telegram-desktop --
+vathanak    5224  3.6  2.6 51243496 426512 ?     SLl  08:39   1:48 /opt/google/chrome/chrome https://github.com/RathpiseyAlpha/ITC-OS-2026/blob/main/labs/lab1/lab1-instruction.md
+vathanak    6330  0.5  2.3 1461344560 375260 ?   Sl   08:43   0:15 /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --js-flags=--nodecommit_pooled_pages --crashpad-handler-pid=5949 --enable-crash-reporter=e1f950c0-43a6-42eb-99eb-e4692cd99744,no_channel --user-data-dir=/home/vathanak/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8361800169856722217,16824466971579493754,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708998493415531
+vathanak    6146  5.9  2.3 1463374452 371984 ?   Sl   08:43   2:44 /snap/code/231/usr/share/code/code --type=zygote --no-sandbox
+vathanak    6988  3.3  1.9 1460089704 305452 ?   Sl   08:52   1:12 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=27 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=894268606 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,16944389747839124448,10631284407041746795,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190709011612001417
+vathanak    1684 10.6  1.8 6357808 300012 ?      Ssl  08:38   5:25 /usr/bin/gnome-shell
+vathanak    5337  4.8  1.7 1464051208 285364 ?   Sl   08:39   2:22 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=114272288 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5992501168523388633,16428808282473275619,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190708990997080739
+vathanak    8710 10.2  1.6 1462038584 266800 ?   Sl   09:28   0:02 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --extension-process --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=79 --time-ticks-at-unix-epoch=-1775047084644806 --launch-time-ticks=3035746073 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13547535331691710672,764199496523351141,2097152 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190709060338177565
+vathanak    5288  2.1  1.2 51568572 201032 ?     Sl   08:39   1:03 /opt/google/chrome/chrome --type=gpu-process --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=5231 --enable-crash-reporter=8a6d5832-049c-479d-b0fb-1a38e2c14d61, --change-stack-guard-on-fork=enable --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --metrics-shmem-handle=4,i,10948078503213503096,5120575532336931072,262144 --field-trial-handle=3,i,2435683723135153493,4713903141235369801,262144 --disable-features=EyeDropper --variations-seed-version=20260331-102737.226000-production --pseudonymization-salt-handle=7,i,16735819130992487600,12365363556092491527,4 --trace-process-track-uuid=3190708988185955192
+vathanak    5917  1.7  1.2 1461480444 195412 ?   SLsl 08:43   0:49 /snap/code/231/usr/share/code/code --no-sandbox --force-user-env --ozone-platform=x11
+--- Background jobs ---
+[1]-  8840 Running                 sleep 300 &
+[2]+  8843 Running                 sleep 500 &
+--- After Ctrl+Z (stopped job) ---
+[1]   8840 Running                 sleep 300 &
+[2]-  8843 Running                 sleep 500 &
+[3]+  8852 Stopped                 sleep 600
+--- After bg (resumed in background) ---
+[1]   8840 Running                 sleep 300 &
+[2]-  8843 Running                 sleep 500 &
+[3]+  8852 Stopped                 sleep 600
+--- After terminating all sleep jobs ---
+[2]-  8843 Terminated              sleep 500
+[3]+  8852 Stopped                 sleep 600
+Started sleep with PID: 8902
+--- Available signals ---
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8
+43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13
+48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12
+53) SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7
+58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
+63) SIGRTMAX-1	64) SIGRTMAX	
+--- After SIGSTOP ---
+    PID STAT CMD
+   8902 T    sleep 1000
+--- After SIGCONT ---
+    PID STAT CMD
+   8902 S    sleep 1000
+--- After SIGTERM ---
+    PID STAT CMD
+--- nohup demo ---
+nohup sleep PID: 9005
+-rw------- 1 vathanak vathanak 0 Apr  1 09:35 nohup.out
+--- Challenge Process Management ---
+    PID TTY          TIME CMD
+   5549 pts/0    00:00:00 bash
+   8852 pts/0    00:00:00  \_ sleep
+   9092 pts/0    00:00:00  \_ sleep
+   9098 pts/0    00:00:00  \_ sleep
+   9100 pts/0    00:00:00  \_ sleep
+   9147 pts/0    00:00:00  \_ ps
+5549
+4428 vathanak  20   0 1427036 444456 195836 S   0.0   2.8   0:13.29 telegram-desktop

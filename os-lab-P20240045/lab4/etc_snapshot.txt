@@ -1,0 +1,20 @@
+total 1324
+drwxr-xr-x 142 root root    12288 Mar 31 11:31 .
+drwxr-xr-x  20 root root     4096 Mar 10 06:59 ..
+drwxr-xr-x   3 root root     4096 Sep 11  2024 acpi
+-rw-r--r--   1 root root     3028 Sep 11  2024 adduser.conf
+drwxr-xr-x   3 root root     4096 Sep 11  2024 alsa
+drwxr-xr-x   2 root root    12288 Mar 19 07:38 alternatives
+-rw-r--r--   1 root root      335 Mar 23  2022 anacrontab
+drwxr-xr-x   3 root root     4096 Mar 10 07:32 apache2
+-rw-r--r--   1 root root      433 Mar 23  2022 apg.conf
+drwxr-xr-x   5 root root     4096 Sep 11  2024 apm
+drwxr-xr-x   3 root root     4096 Mar 10 07:10 apparmor
+drwxr-xr-x   8 root root     4096 Mar 18 08:40 apparmor.d
+drwxr-xr-x   3 root root     4096 Mar 10 07:11 apport
+-rw-r--r--   1 root root      769 Feb 22  2022 appstream.conf
+drwxr-xr-x   8 root root     4096 Mar 10 07:04 apt
+drwxr-xr-x   3 root root     4096 Mar 10 07:11 avahi
+-rw-r--r--   1 root root     2319 Jan  6  2022 bash.bashrc
+-rw-r--r--   1 root root       45 Nov 11  2021 bash_completion
+drwxr-xr-x   2 root root     4096 Mar 10 07:32 bash_completion.d
