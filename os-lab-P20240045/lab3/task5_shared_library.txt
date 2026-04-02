@@ -1,0 +1,36 @@
+=== Task 5: Build and Register a Shared Library ===
+--- API Design (header file) ---
+#ifndef TECHCORP_SYSINFO_H
+#define TECHCORP_SYSINFO_H
+
+// Returns the hostname of the machine
+const char* tc_get_hostname(void);
+
+// Returns the current uptime in a human-readable string
+const char* tc_get_uptime(void);
+
+// Returns the number of CPU cores
+int tc_get_cpu_count(void);
+
+#endif
+
+--- Partner A: Compiled shared library ---
+libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=7ac0a65dbacb2f829203e51052b8235c5868f642, not stripped
+-rwxrwxr-x 1 vathanak vathanak 16072 Apr  2 11:28 libtechcorp_sysinfo.so
+
+
+--- Phase 4: Partner A wrote v2 test ---
+#include <stdio.h>
+#include "techcorp_sysinfo.h"
+
+int main(void) {
+    printf("=== TechCorp System Info Report v2 ===\n");
+    printf("Hostname : %s\n", tc_get_hostname());
+    printf("Uptime   : %s\n", tc_get_uptime());
+    printf("CPU Cores: %d\n", tc_get_cpu_count());
+    printf("Memory   : %ld MB\n", tc_get_memory_mb());
+    printf("======================================\n");
+    return 0;
+}
+
+--- Phase 4: v2 test run ---
