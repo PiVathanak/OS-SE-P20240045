@@ -19,6 +19,35 @@ libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), 
 -rwxrwxr-x 1 vathanak vathanak 16072 Apr  2 11:28 libtechcorp_sysinfo.so
 
 
+--- Partner B: Test program written ---
+#include <stdio.h>
+#include "techcorp_sysinfo.h"
+
+int main(void) {
+    printf("=== TechCorp System Info Report ===\n");
+    printf("Hostname : %s\n", tc_get_hostname());
+    printf("Uptime   : %s\n", tc_get_uptime());
+    printf("CPU Cores: %d\n", tc_get_cpu_count());
+    printf("===================================\n");
+    return 0;
+}
+
+--- Integration: ldd on test program (before install) ---
+	linux-vdso.so.1 (0x00007ffd64ba7000)
+	libtechcorp_sysinfo.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000715158c00000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000715158f9c000)
+
+--- Integration: Test run (using LD_LIBRARY_PATH) ---
+=== TechCorp System Info Report ===
+Hostname : nakk-zkiee
+Uptime   : 0 hours, 8 minutes
+CPU Cores: 12
+===================================
+
+--- Phase 4: Partner B recompiled library with new function ---
+libtechcorp_sysinfo.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=103be4dec909c634fbec9999897d7b7feec208e1, not stripped
+
 --- Phase 4: Partner A wrote v2 test ---
 #include <stdio.h>
 #include "techcorp_sysinfo.h"
@@ -34,3 +63,28 @@ int main(void) {
 }
 
 --- Phase 4: v2 test run ---
+=== TechCorp System Info Report v2 ===
+Hostname : nakk-zkiee
+Uptime   : 0 hours, 11 minutes
+CPU Cores: 12
+Memory   : 15618 MB
+======================================
+
+--- System-wide install: ldconfig cache ---
+	libtechcorp_sysinfo.so (libc6,x86-64) => /usr/local/lib/libtechcorp_sysinfo.so
+
+--- System-wide test (no LD_LIBRARY_PATH) ---
+	linux-vdso.so.1 (0x00007ffd021b7000)
+	libtechcorp_sysinfo.so => /usr/local/lib/libtechcorp_sysinfo.so (0x00007886415fb000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000788641200000)
+	/lib64/ld-linux-x86-64.so.2 (0x000078864162a000)
+=== TechCorp System Info Report v2 ===
+Hostname : nakk-zkiee
+Uptime   : 0 hours, 14 minutes
+CPU Cores: 12
+Memory   : 15618 MB
+======================================
+
+--- Pair Information ---
+Role A (Library Author → v2 Tester): Pi sereyVathanak - P20240045
+Role B (Test Author → v2 Library Extender): Chea Seavhong - P20240032

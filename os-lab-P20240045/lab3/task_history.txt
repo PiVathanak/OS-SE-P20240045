@@ -1,0 +1,101 @@
+=== Full Command History ===
+ 1932  gcc sysinfo_test.c -L. -ltechcorp_sysinfo -o sysinfo_test
+ 1933  echo "" >> ../task5_shared_library.txt
+ 1934  echo "--- Integration: ldd on test program (before install) ---" >> ../task5_shared_library.txt
+ 1935  ldd ./sysinfo_test >> ../task5_shared_library.txt 2>&1
+ 1936  echo "" >> ../task5_shared_library.txt
+ 1937  echo "--- Integration: Test run (using LD_LIBRARY_PATH) ---" >> ../task5_shared_library.txt
+ 1938  LD_LIBRARY_PATH=. ./sysinfo_test >> ../task5_shared_library.txt
+ 1939  cat > techcorp_sysinfo.h << 'EOF'
+#ifndef TECHCORP_SYSINFO_H
+#define TECHCORP_SYSINFO_H
+
+const char* tc_get_hostname(void);
+const char* tc_get_uptime(void);
+int tc_get_cpu_count(void);
+
+// NEW — Returns total memory in MB
+long tc_get_memory_mb(void);
+
+#endif
+EOF
+
+ 1940  cat > techcorp_memory.c << 'EOF'
+#include "techcorp_sysinfo.h"
+#include <stdio.h>
+
+long tc_get_memory_mb(void) {
+    FILE *fp = fopen("/proc/meminfo", "r");
+    if (fp) {
+        long mem_kb = 0;
+        if (fscanf(fp, "MemTotal: %ld kB", &mem_kb) == 1) {
+            fclose(fp);
+            return mem_kb / 1024;
+        }
+        fclose(fp);
+    }
+    return -1;
+}
+EOF
+
+ 1941  gcc -fPIC -c techcorp_sysinfo.c -o techcorp_sysinfo.o
+ 1942  gcc -fPIC -c techcorp_memory.c -o techcorp_memory.o
+ 1943  gcc -shared -o libtechcorp_sysinfo.so techcorp_sysinfo.o techcorp_memory.o
+ 1944  echo "" >> ../task5_shared_library.txt
+ 1945  echo "--- Phase 4: Partner B recompiled library with new function ---" >> ../task5_shared_library.txt
+ 1946  file libtechcorp_sysinfo.so >> ../task5_shared_library.txt
+ 1947  cat > sysinfo_test_v2.c << 'EOF'
+#include <stdio.h>
+#include "techcorp_sysinfo.h"
+
+int main(void) {
+    printf("=== TechCorp System Info Report v2 ===\n");
+    printf("Hostname : %s\n", tc_get_hostname());
+    printf("Uptime   : %s\n", tc_get_uptime());
+    printf("CPU Cores: %d\n", tc_get_cpu_count());
+    printf("Memory   : %ld MB\n", tc_get_memory_mb());
+    printf("======================================\n");
+    return 0;
+}
+EOF
+
+ 1948  echo "" >> ../task5_shared_library.txt
+ 1949  echo "--- Phase 4: Partner A wrote v2 test ---" >> ../task5_shared_library.txt
+ 1950  cat sysinfo_test_v2.c >> ../task5_shared_library.txt
+ 1951  gcc sysinfo_test_v2.c -L. -ltechcorp_sysinfo -o sysinfo_test_v2
+ 1952  echo "" >> ../task5_shared_library.txt
+ 1953  echo "--- Phase 4: v2 test run ---" >> ../task5_shared_library.txt
+ 1954  LD_LIBRARY_PATH=. ./sysinfo_test_v2 >> ../task5_shared_library.txt
+ 1955  sudo cp libtechcorp_sysinfo.so /usr/local/lib/
+ 1956  sudo ldconfig
+ 1957  echo "" >> ../task5_shared_library.txt
+ 1958  echo "--- System-wide install: ldconfig cache ---" >> ../task5_shared_library.txt
+ 1959  ldconfig -p | grep techcorp >> ../task5_shared_library.txt
+ 1960  echo "" >> ../task5_shared_library.txt
+ 1961  echo "--- System-wide test (no LD_LIBRARY_PATH) ---" >> ../task5_shared_library.txt
+ 1962  ldd ./sysinfo_test_v2 >> ../task5_shared_library.txt 2>&1
+ 1963  ./sysinfo_test_v2 >> ../task5_shared_library.txt
+ 1964  sudo rm /usr/local/lib/libtechcorp_sysinfo.so
+ 1965  sudo ldconfig
+ 1966  echo "" >> ../task5_shared_library.txt
+ 1967  echo "--- Pair Information ---" >> ../task5_shared_library.txt
+ 1968  echo "Role A (Library Author → v2 Tester): Pi sereyVathanak - P20240045" >> ../task5_shared_library.txt
+ 1969  echo "Role B (Test Author → v2 Library Extender): Chea Seavhong - P20240032" >> ../task5_shared_library.txt
+ 1970  ldconfig -p | grep techcorp
+ 1971  clear
+ 1972  ldconfig -p | grep techcorp
+ 1973  sudo cp libtechcorp_sysinfo.so /usr/local/lib/
+ 1974  sudo ldconfig
+ 1975  ldconfig -p | grep techcorp
+ 1976  ldd ./sysinfo_test_v2
+ 1977  [200~./sysinfo_test_v2~
+ 1978  ./sysinfo_test_v2
+ 1979  sudo rm /usr/local/lib/libtechcorp_sysinfo.so
+ 1980  sudo ldconfig
+ 1981  clear
+ 1982  cd ../..
+ 1983  cd ..
+ 1984  cd os-lab-P20240045/
+ 1985  cd lab3
+ 1986  echo "=== Full Command History ===" > task_history.txt
+ 1987  history | tail -n 100 >> task_history.txt
