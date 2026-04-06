@@ -1,0 +1,18 @@
+vathanak   12612   12208   12612  0    5 01:21 pts/1    00:00:00 ./threads_observe
+vathanak   12612   12208   12614  0    5 01:21 pts/1    00:00:00 ./threads_observe
+vathanak   12612   12208   12615  0    5 01:21 pts/1    00:00:00 ./threads_observe
+vathanak   12612   12208   12616  0    5 01:21 pts/1    00:00:00 ./threads_observe
+vathanak   12612   12208   12617  0    5 01:21 pts/1    00:00:00 ./threads_observe
+vathanak   12914   12208   12914  0    1 01:22 pts/1    00:00:00 grep --color=auto threads_observe
+    PID    SPID TTY          TIME CMD
+  12612   12612 pts/1    00:00:00 threads_observe
+  12612   12614 pts/1    00:00:00 threads_observe
+  12612   12615 pts/1    00:00:00 threads_observe
+  12612   12616 pts/1    00:00:00 threads_observe
+  12612   12617 pts/1    00:00:00 threads_observe
+--- /proc/<PID>/task/ listing ---
+14491
+14493
+14494
+14495
+14496

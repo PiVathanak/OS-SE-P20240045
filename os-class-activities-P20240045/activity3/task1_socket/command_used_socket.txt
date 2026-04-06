@@ -1,0 +1,20 @@
+ 1900  sudo ldconfig
+ 1901  clear
+ 1902  cd ../..
+ 1903  cd ..
+ 1904  cd os-lab-P20240045/
+ 1905  cd lab3
+ 1906  echo "=== Full Command History ===" > task_history.txt
+ 1907  history | tail -n 100 >> task_history.txt
+ 1908  history | tail -n 100 
+ 1909  sudo apt update
+ 1910  apt list --upgradable
+ 1911  cd os-class-activities-P20240045/activity3/task1_socket/
+ 1912  cleatr
+ 1913  clear
+ 1914  ./client
+ 1915  ./server > result_server.txt 2>&1 &
+ 1916  sleep 1
+ 1917  ./client > result_client.txt 2>&1
+ 1918  cat result_server.txt result_client.txt > result_socket.txt
+ 1919  history | tail -n 20 > command_used_socket.txt

@@ -1,0 +1,30 @@
+ 1932  clear
+ 1933  ls
+ 1934  gcc -o threads threads.c -pthread
+ 1935  ./threads > result_threads.txt 2>&1
+ 1936  cat result_threads.txt
+ 1937  touch threads_mutex.c
+ 1938  gcc -o threads_mutex threads_mutex.c -pthread
+ 1939  ./threads_mutex > result_threads_mutex.txt 2>&1
+ 1940  history | tail -n 20 > command_used_threads.txt
+ 1941  clear
+ 1942  cd ../task3_java
+ 1943  cd ..
+ 1944  mkdir task3_java
+ 1945  cd task3_java/
+ 1946  clear
+ 1947  touch ThreadDemo.java
+ 1948  javac ThreadDemo.java
+ 1949  java ThreadDemo > result_thread_demo.txt 2>&1
+ 1950  cat result_thread_demo.txt
+ 1951  touch RunnableDemo.java
+ 1952  javac RunnableDemo.java
+ 1953  java RunnableDemo > result_runnable_demo.txt 2>&1
+ 1954  cat result_runnable_demo.txt
+ 1955  touch PoolDemo.java
+ 1956  java PoolDemo > result_pool_demo.txt 2>&1
+ 1957  cat result_pool_demo.txt
+ 1958  java PoolDemo > result_pool_demo.txt 2>&1
+ 1959  cat result_pool_demo.txt
+ 1960  $ history | tail -n 30 > command_used_java.txt
+ 1961  history | tail -n 30 > command_used_java.txt
