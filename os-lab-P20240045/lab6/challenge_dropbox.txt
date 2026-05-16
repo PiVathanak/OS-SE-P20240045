@@ -1,0 +1,10 @@
+=== Directory Permissions ===
+drwxrws-wt 2 root devteam 4096 May 16 09:21 /opt/techcorp/dropbox
+=== dev_alice creates file ===
+Created alice.txt successfully
+=== dev_bob tries to delete alice's file ===
+rm: cannot remove '/opt/techcorp/dropbox/alice.txt': Operation not permitted
+Delete failed as expected
+=== dev_bob creates his own file ===
+Created bob.txt successfully
+=== Final directory listing ===
