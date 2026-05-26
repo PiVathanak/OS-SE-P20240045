@@ -1,0 +1,7 @@
+]633;E;echo "=== PATH ===";c373a5ba-181d-4308-8ef1-977064188e5b]633;C=== PATH ===
+/home/vathanak/bin:/home/vathanak/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/vathanak/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/vathanak/.vscode/extensions/vscjava.vscode-java-debug-0.59.0/bundled/scripts/noConfigScripts:/home/vathanak/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/scripts/noConfigScripts
+=== warmup location ===
+/home/vathanak/bin/warmup
+=== warmup command output ===
+Hello from my first script! My current directory is:
+/home/vathanak

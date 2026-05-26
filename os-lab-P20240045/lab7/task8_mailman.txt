@@ -1,0 +1,8 @@
+]633;E;echo "=== mailman output ===";c373a5ba-181d-4308-8ef1-977064188e5b]633;C=== mailman output ===
+Sent message to vathanak
+Messages sent: 1
+=== my inbox ===
+total 4
+-rw-rw-r-- 1 vathanak vathanak 105 May 26 03:16 message_from_vathanak.txt
+=== messages I received ===
+Hello vathanak, I am an automated bot written by vathanak. I successfully read your secret word: kernel.

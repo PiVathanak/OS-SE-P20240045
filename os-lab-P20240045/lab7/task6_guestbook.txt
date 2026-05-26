@@ -1,0 +1,5 @@
+]633;E;echo "=== guestbook permissions ===";c373a5ba-181d-4308-8ef1-977064188e5b]633;C=== guestbook permissions ===
+-rw------- 1 vathanak vathanak 0 May 26 03:01 /home/vathanak/guestbook.txt
+=== sign_book permissions ===
+-rwsr-xr-x 1 vathanak vathanak 16096 May 26 03:03 /home/vathanak/bin/sign_book
+=== guestbook contents ===

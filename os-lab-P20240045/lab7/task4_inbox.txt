@@ -1,0 +1,4 @@
+]633;E;echo "=== inbox permissions ===";c373a5ba-181d-4308-8ef1-977064188e5b]633;C=== inbox permissions ===
+drwx-wx-wx 2 vathanak vathanak 4096 May 26 02:34 /home/vathanak/public_inbox
+=== inbox files as owner ===
+total 0

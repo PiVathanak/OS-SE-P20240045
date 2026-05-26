@@ -1,0 +1,6 @@
+]633;E;echo "=== broadcaster script ===";c373a5ba-181d-4308-8ef1-977064188e5b]633;C=== broadcaster script ===
+-rwxrwxr-x 1 vathanak vathanak 331 May 26 02:58 /home/vathanak/bin/broadcaster
+=== outbox permissions ===
+drwxr-xr-x 2 vathanak vathanak 4096 May 26 02:58 /home/vathanak/public_outbox
+=== secret.txt ===
+kernel - 2026-05-26 02:58:14
