@@ -1,0 +1,11 @@
+Run 1 final inventory: 80
+Run 2 final inventory: 76
+Run 3 final inventory: 88
+Run 4 final inventory: 92
+Run 5 final inventory: 82
+
+Whether each result was expected or suspicious:
+The results are highly suspicious. Mathematically, 50 bots buying 2 widgets each should always deplete the inventory from 100 down to exactly 0. Seeing values greater than 0 means inventory updates were lost.
+
+Explanation based on OS Process Scheduling:
+This happens because of a Time-of-Check to Time-of-Use (TOC-TOU) race condition. Multiple background processes read 'inventory.txt' at the same instant, seeing the same starting balance before any write takes place. When the OS context-switches between these scheduled processes, they overwrite each other's calculations, causing successful sales to go unrecorded in the final file inventory balance.
