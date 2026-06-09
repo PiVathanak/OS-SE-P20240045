@@ -1,0 +1,61 @@
+#!/bin/bash
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+inventory_file="$script_dir/inventory.txt"
+sales_log="$script_dir/sales.log"
+lock_file="$script_dir/inventory.lock"
+
+# Assign parameters to descriptive variables
+username="$1"
+purchase_quantity="$2"
+
+# --- 1. Define the log_transaction function ---
+log_transaction() {
+    # CHANGE P20240045 to your actual student ID if it is different!
+    local student_id="P20240045"
+    echo "[$student_id] [SUCCESS] $username bought $purchase_quantity widgets." >> sales.log
+}
+
+# --- 2. Input Validation ---
+# Check if the argument count ($#) is exactly 2
+if [ "$#" -ne 2 ]; then
+    echo "Usage: buy_widget <username> <quantity>"
+    exit 1
+fi
+
+# Reject any quantity that is not a positive integer
+if ! [[ "$purchase_quantity" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: Quantity must be a positive integer (greater than 0)."
+    exit 2
+fi
+
+# --- 3. Inventory Management and File I/O ---
+# Check if inventory.txt exists
+if [ ! -f "inventory.txt" ]; then
+    echo "Error: inventory.txt not found! Please create it first."
+    exit 3
+fi
+(
+	flock -x 200
+# Read the current inventory from inventory.txt
+current_inventory=$(cat inventory.txt)
+
+# Check if enough widgets are available
+if [ "$current_inventory" -ge "$purchase_quantity" ]; then
+    # Subtract requested quantity
+    new_inventory=$((current_inventory - purchase_quantity))
+    
+    # Overwrite inventory.txt with the updated number
+    echo "$new_inventory" > inventory.txt
+    
+    # Trigger the log function to append to sales.log
+    log_transaction
+    
+    echo "Transaction Successful! Remaining inventory: $new_inventory"
+    exit 0
+else
+    # If not enough widgets are available
+    echo "Transaction Failed: Not enough inventory!"
+    exit 4
+fi
+) 200> invetory.lock

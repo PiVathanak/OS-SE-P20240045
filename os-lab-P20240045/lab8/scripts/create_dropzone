@@ -1,0 +1,18 @@
+#!/bin/bash
+
+read -r -p "Drop zone folder name: " folder
+
+if [ -z "$folder" ]; then
+    echo "Error: folder name cannot be empty."
+    exit 1
+fi
+
+dropzone="$HOME/$folder"
+
+mkdir -p "$dropzone"
+
+chmod o+wx "$dropzone"
+chmod +t "$dropzone"
+
+echo "Drop zone created:"
+ls -ld "$dropzone"

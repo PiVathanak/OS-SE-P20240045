@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Assign positional parameters to normal variables
+operator="$1"
+cycles="$2"
+
+# 1. Check if the argument count ($#) is exactly 2
+if [ "$#" -ne 2 ]; then
+    echo "Usage: quantum_probe <operator> <cycles>"
+    exit 1
+fi
+
+# 2. Reject non-positive or non-integer cycle counts using Regex
+if ! [[ "$cycles" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: cycles must be a positive integer."
+    exit 2
+fi
+
+# 3. Create the folder and capture its exit status ($?) immediately
+mkdir -p probe_logs
+mkdir_status=$?
+
+echo "mkdir exit status: $mkdir_status"
+
+# Check if the folder creation succeeded
+if [ "$mkdir_status" -ne 0 ]; then
+    echo "Could not prepare probe_logs."
+    exit 3
+fi
+
+# Print Operator details
+echo "Operator: $operator"
+echo "Cycles requested: $cycles"
+
+# 4. Loop from 1 to the requested cycle count using seq
+for i in $(seq 1 "$cycles"); do
+    echo "Cycle $i: quantum widget console online"
+done
+
+# Exit with 0 for success
+exit 0

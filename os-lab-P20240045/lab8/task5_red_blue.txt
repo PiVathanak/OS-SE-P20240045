@@ -1,0 +1,21 @@
+]633;E;echo "=== public api permissions ===";8b22f64b-e8a1-40a7-b387-2109ef5e6843]633;C=== public api permissions ===
+drwxr-x--x 11 se-pi-sereyvathanak se-pi-sereyvathanak 4096 Jun  9 13:43 /home/se-pi-sereyvathanak
+drwxr-xr-x  2 se-pi-sereyvathanak se-pi-sereyvathanak 4096 Jun  9 13:41 /home/se-pi-sereyvathanak/public_api
+total 12
+-rwxrwxr-x 1 se-pi-sereyvathanak se-pi-sereyvathanak 1796 Jun  9 13:40 buy_widget
+-rw-rw-rw- 1 se-pi-sereyvathanak se-pi-sereyvathanak    0 Jun  9 13:41 inventory.lock
+-rw-rw-rw- 1 se-pi-sereyvathanak se-pi-sereyvathanak    2 Jun  9 13:41 inventory.txt
+-rw-rw-rw- 1 se-pi-sereyvathanak se-pi-sereyvathanak 2341 Jun  9 13:41 sales.log
+=== inventory ===
+0
+=== red team sales evidence ===
+[P20240045] [SUCCESS] Bot_40 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_39 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_12 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_11 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_43 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_42 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_24 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_50 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_49 bought 2 widgets.
+[P20240045] [SUCCESS] Bot_41 bought 2 widgets.
