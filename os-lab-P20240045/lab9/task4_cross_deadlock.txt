@@ -1,0 +1,16 @@
+=== public DR permissions ===
+drwx--x--x 45 vathanak vathanak 4096 Jun 13 05:18 /home/vathanak
+drwxrwxr-x  6 vathanak vathanak 4096 Jun 13 05:29 /home/vathanak/os-lab-deadlock
+drwxr-xr-x  2 vathanak vathanak 4096 Jun 13 05:27 /home/vathanak/os-lab-deadlock/public_dr_alpha
+drwxr-xr-x  2 vathanak vathanak 4096 Jun 13 05:29 /home/vathanak/os-lab-deadlock/public_dr_beta
+/home/vathanak/os-lab-deadlock/public_dr_alpha:
+total 0
+-rw-rw-rw- 1 vathanak vathanak 0 Jun 13 05:27 vault.lock
+
+/home/vathanak/os-lab-deadlock/public_dr_beta:
+total 0
+-rw-rw-rw- 1 vathanak vathanak 0 Jun 13 05:29 vault.lock
+=== running cross sync processes ===
+=== partner role ===
+Partner username: chea seavhong
+My role: Player A 

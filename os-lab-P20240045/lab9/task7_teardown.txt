@@ -1,0 +1,16 @@
+=== teardown script ===
+-rwxrwxr-x 1 vathanak vathanak 334 Jun 13 05:37 /home/vathanak/bin/teardown
+=== process check ===
+No sync processes found.
+=== final working folder ===
+/home/vathanak/os-lab-deadlock
+/home/vathanak/os-lab-deadlock/public_dr_alpha
+/home/vathanak/os-lab-deadlock/public_dr_alpha/vault.lock
+/home/vathanak/os-lab-deadlock/public_dr_beta
+/home/vathanak/os-lab-deadlock/public_dr_beta/vault.lock
+/home/vathanak/os-lab-deadlock/vault_alpha
+/home/vathanak/os-lab-deadlock/vault_alpha/README.txt
+/home/vathanak/os-lab-deadlock/vault_alpha/vault.lock
+/home/vathanak/os-lab-deadlock/vault_beta
+/home/vathanak/os-lab-deadlock/vault_beta/README.txt
+/home/vathanak/os-lab-deadlock/vault_beta/vault.lock

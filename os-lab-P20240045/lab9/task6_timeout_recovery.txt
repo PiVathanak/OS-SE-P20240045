@@ -1,0 +1,6 @@
+=== sync_timeout permissions ===
+-rwxrwxr-x 1 vathanak vathanak 585 Jun 13 05:35 /home/vathanak/bin/sync_timeout
+=== timeout evidence ===
+Paste the timeout error and exit status shown in your terminal.
+=== process check after stopping old script ===
+ERROR: could not lock Vault Beta within 5 seconds
