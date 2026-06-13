@@ -1,0 +1,9 @@
+]633;E;echo "=== drop zone permissions ===";8b22f64b-e8a1-40a7-b387-2109ef5e6843]633;C=== drop zone permissions ===
+drwxrwxrwt 2 se-pi-sereyvathanak se-pi-sereyvathanak 4096 Jun  9 13:52 /home/se-pi-sereyvathanak/vendor_reports
+=== drop zone files ===
+total 4
+-rw-rw-r-- 1 se-pi-sereyvathanak se-pi-sereyvathanak 27 Jun  9 13:52 my_rules.txt
+=== partner deletion result ===
+Paste or summarize the Permission denied result here.
+Permission denied
+rm: cannot remove '/home/se-chea-seavhong/vendor_reports/my_rules.txt': Operation not permitted

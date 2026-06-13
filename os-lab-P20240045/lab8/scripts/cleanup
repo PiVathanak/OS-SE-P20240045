@@ -1,0 +1,20 @@
+#!/bin/bash
+
+script_name="$(basename "$0")"
+
+for file in *; do
+    # Skip directories
+    [ -f "$file" ] || continue
+
+    # Don't move the script itself
+    [ "$file" = "$script_name" ] && continue
+
+    # Skip files without extensions
+    [[ "$file" == *.* ]] || continue
+
+    extension="${file##*.}"
+
+    mkdir -p "$extension"
+
+    mv "$file" "$extension/"
+done

@@ -1,0 +1,9 @@
+]633;E;tree . 2> /dev/null;8b22f64b-e8a1-40a7-b387-2109ef5e6843]633;C.
+├── csv
+│   └── data.csv
+├── log
+│   └── test.log
+└── tmp
+    └── error.tmp
+
+4 directories, 3 files
