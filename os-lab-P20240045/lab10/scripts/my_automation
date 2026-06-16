@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+base="$HOME/os-lab-automation"
+logfile="$base/logs/my_automation.log"
+
+# TODO: replace the line below with YOUR own automation task.
+echo "$(date '+%Y-%m-%d %H:%M:%S') | Logged in users: $(who | awk '{print $1}' | sort -u | xargs)" >> "$logfile"

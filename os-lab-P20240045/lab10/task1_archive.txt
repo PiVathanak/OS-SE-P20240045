@@ -1,0 +1,13 @@
+]633;E;echo "=== archive sizes (plain vs compressed) ===";6d446c97-e040-49a8-9645-dca427d4a07b]633;C=== archive sizes (plain vs compressed) ===
+-rw-rw-r-- 1 vathanak vathanak 1.3K Jun 16 02:21 /home/vathanak/os-lab-automation/project_compressed.tar.gz
+-rw-rw-r-- 1 vathanak vathanak  10K Jun 16 02:21 /home/vathanak/os-lab-automation/project_plain.tar
+=== contents of compressed archive ===
+project/
+project/README.md
+project/src/
+project/src/widget.py
+project/docs/
+project/docs/notes.txt
+project/docs/changelog.txt
+=== restore verification ===
+RESTORE OK: archive matches original

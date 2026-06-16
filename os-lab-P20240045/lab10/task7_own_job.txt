@@ -1,0 +1,15 @@
+]633;E;echo "=== my automation script ===";6d446c97-e040-49a8-9645-dca427d4a07b]633;C=== my automation script ===
+#!/bin/bash
+set -euo pipefail
+
+base="$HOME/os-lab-automation"
+logfile="$base/logs/my_automation.log"
+
+# TODO: replace the line below with YOUR own automation task.
+echo "$(date '+%Y-%m-%d %H:%M:%S') | Logged in users: $(who | awk '{print $1}' | sort -u | xargs)" >> "$logfile"
+=== my cron line ===
+*/2 * * * * /home/vathanak/bin/my_automation >> /home/vathanak/os-lab-automation/logs/cron_my_automation.log 2>&1
+=== output produced on schedule ===
+2026-06-16 02:56:27 | Logged in users: vathanak
+2026-06-16 02:58:01 | Logged in users: vathanak
+2026-06-16 03:00:01 | Logged in users: vathanak

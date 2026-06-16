@@ -1,0 +1,11 @@
+]633;E;echo "=== script permissions ===";6d446c97-e040-49a8-9645-dca427d4a07b]633;C=== script permissions ===
+-rwxrwxr-x 1 vathanak vathanak 405 Jun 16 02:14 /home/vathanak/bin/automation_demo
+=== log contents ===
+2026-06-16 02:14:16 | automation_demo started by user vathanak
+2026-06-16 02:14:16 | working directory is /home/vathanak/os-se-P20240045/os-lab-P20240045/lab10
+2026-06-16 02:14:16 | home directory is /home/vathanak
+2026-06-16 02:14:16 | automation_demo finished successfully
+2026-06-16 02:14:30 | automation_demo started by user vathanak
+2026-06-16 02:14:30 | working directory is /home/vathanak/os-se-P20240045/os-lab-P20240045/lab10
+2026-06-16 02:14:30 | home directory is /home/vathanak
+2026-06-16 02:14:30 | automation_demo finished successfully

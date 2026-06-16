@@ -1,0 +1,71 @@
+]633;E;echo "=== crontab BEFORE teardown ===";6d446c97-e040-49a8-9645-dca427d4a07b]633;C=== crontab BEFORE teardown ===
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+# Lab10 heartbeat - runs every minute
+# * * * * * date '+\%Y-\%m-\%d \%H:\%M:\%S heartbeat' >> $HOME/os-lab-automation/logs/heartbeat.log 2>&1
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+# 30 14 16 6 * /home/vathanak/bin/lab_session_job >> /home/vathanak/os-lab-automation/logs/cron_session_job.log 2>&1
+
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+# 30 14 22 6 * /home/vathanak/bin/deadline_job >> /home/vathanak/os-lab-automation/logs/cron_deadline_job.log 2>&1
+
+# Lab10 file backup - every 2 minutes (TEST interval)
+# */2 * * * * /home/vathanak/bin/backup_project >> /home/vathanak/os-lab-automation/logs/cron_backup.log 2>&1
+
+# Lab10 maintenance - log rotation + health check, every 2 minutes (TEST interval)
+# */2 * * * * /home/vathanak/bin/maintenance >> /home/vathanak/os-lab-automation/logs/cron_maintenance.log 2>&1
+# Lab10 my own job - <describe what it does> (TEST interval)
+*/2 * * * * /home/vathanak/bin/my_automation >> /home/vathanak/os-lab-automation/logs/cron_my_automation.log 2>&1
+=== crontab AFTER teardown (only GRADED jobs should remain) ===
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+# 30 14 16 6 * /home/vathanak/bin/lab_session_job >> /home/vathanak/os-lab-automation/logs/cron_session_job.log 2>&1
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+# 30 14 22 6 * /home/vathanak/bin/deadline_job >> /home/vathanak/os-lab-automation/logs/cron_deadline_job.log 2>&1
+=== final automation tree ===
+/home/vathanak/os-lab-automation
+/home/vathanak/os-lab-automation/backups
+/home/vathanak/os-lab-automation/backups/project_20260616_024401.tar.gz
+/home/vathanak/os-lab-automation/backups/project_20260616_024601.tar.gz
+/home/vathanak/os-lab-automation/backups/project_20260616_024801.tar.gz
+/home/vathanak/os-lab-automation/cron_tasks
+/home/vathanak/os-lab-automation/cron_tasks/deadline_job.out
+/home/vathanak/os-lab-automation/cron_tasks/session_job.out
+/home/vathanak/os-lab-automation/logs
+/home/vathanak/os-lab-automation/logs/archive
+/home/vathanak/os-lab-automation/logs/automation_demo.log
+/home/vathanak/os-lab-automation/logs/backup_project.log
+/home/vathanak/os-lab-automation/logs/cron_backup.log
+/home/vathanak/os-lab-automation/logs/cron_maintenance.log
+/home/vathanak/os-lab-automation/logs/cron_my_automation.log
+/home/vathanak/os-lab-automation/logs/health_report.log
+/home/vathanak/os-lab-automation/logs/heartbeat.log
+/home/vathanak/os-lab-automation/logs/my_automation.log
+/home/vathanak/os-lab-automation/project
+/home/vathanak/os-lab-automation/project_compressed.tar.gz
+/home/vathanak/os-lab-automation/project/docs
+/home/vathanak/os-lab-automation/project_plain.tar
+/home/vathanak/os-lab-automation/project/README.md
+/home/vathanak/os-lab-automation/project/src
+/home/vathanak/os-lab-automation/restore_demo
+/home/vathanak/os-lab-automation/restore_demo/project

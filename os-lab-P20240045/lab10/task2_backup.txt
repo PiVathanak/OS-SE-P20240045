@@ -1,0 +1,23 @@
+]633;E;echo "=== backup script permissions ===";6d446c97-e040-49a8-9645-dca427d4a07b]633;C=== backup script permissions ===
+-rwxrwxr-x 1 vathanak vathanak 792 Jun 16 02:25 /home/vathanak/bin/backup_project
+=== archives kept (should be 3) ===
+/home/vathanak/os-lab-automation/backups/project_20260616_022615.tar.gz
+/home/vathanak/os-lab-automation/backups/project_20260616_022607.tar.gz
+/home/vathanak/os-lab-automation/backups/project_20260616_022606.tar.gz
+=== backup log ===
+2026-06-16 02:26:05 | starting backup of /home/vathanak/os-lab-automation/project
+2026-06-16 02:26:05 | created archive /home/vathanak/os-lab-automation/backups/project_20260616_022605.tar.gz
+2026-06-16 02:26:05 | no old archives to prune
+2026-06-16 02:26:05 | backup finished successfully
+2026-06-16 02:26:06 | starting backup of /home/vathanak/os-lab-automation/project
+2026-06-16 02:26:06 | created archive /home/vathanak/os-lab-automation/backups/project_20260616_022606.tar.gz
+2026-06-16 02:26:06 | no old archives to prune
+2026-06-16 02:26:06 | backup finished successfully
+2026-06-16 02:26:07 | starting backup of /home/vathanak/os-lab-automation/project
+2026-06-16 02:26:07 | created archive /home/vathanak/os-lab-automation/backups/project_20260616_022607.tar.gz
+2026-06-16 02:26:07 | no old archives to prune
+2026-06-16 02:26:07 | backup finished successfully
+2026-06-16 02:26:15 | starting backup of /home/vathanak/os-lab-automation/project
+2026-06-16 02:26:15 | created archive /home/vathanak/os-lab-automation/backups/project_20260616_022615.tar.gz
+2026-06-16 02:26:15 | pruned old archive /home/vathanak/os-lab-automation/backups/project_20260616_022605.tar.gz
+2026-06-16 02:26:15 | backup finished successfully
