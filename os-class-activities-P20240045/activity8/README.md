@@ -5,166 +5,196 @@
 * **Personalization:** a = 5, b = 4 → N = (10a+b) mod 128 = 54
 * **Programming Language Used:** Java
 
----
+## Part 1A — Address Translation (by Hand)
 
-## Part A1 — Address Translation (by Hand)
-
-### Translation Table
-
-| Logical Address (LA) | Page = LA/16 | Offset = LA%16 | Valid? | Frame | Physical Address |
-| -------------------- | ------------ | -------------- | ------ | ----- | ---------------- |
-| 20                   | 1            | 4              | Yes    | 2     | 2×16+4 = 36      |
-| 100                  | 6            | 4              | Yes    | 0     | 0×16+4 = 4       |
-| 48                   | 3            | 0              | No     | -     | Page Fault       |
-| 16                   | 1            | 0              | Yes    | 2     | 2×16+0 = 32      |
-| 127                  | 7            | 15             | Yes    | 4     | 4×16+15 = 79     |
-| 54                   | 3            | 6              | No     | -     | Page Fault       |
+| Logical (LA) | Page = LA/16 | Offset = LA%16 | Valid? | Frame | Physical Address |
+| ------------ | ------------ | -------------- | ------ | ----- | ---------------- |
+| 20           | 1            | 4              | Yes    | 2     | 36               |
+| 100          | 6            | 4              | Yes    | 0     | 4                |
+| 48           | 3            | 0              | No     | -     | Page Fault       |
+| 16           | 1            | 0              | Yes    | 2     | 32               |
+| 127          | 7            | 15             | Yes    | 4     | 79               |
+| 54           | 3            | 6              | No     | -     | Page Fault       |
 
 ### Questions
 
-#### 1. Offset unchanged because:
+1. **Offset unchanged because:**
 
-The offset identifies the exact byte location inside a page. During address translation, only the page number is mapped to a frame number. Since pages and frames have the same size, the offset remains unchanged.
+   The offset identifies the exact byte within a page. Paging only changes the page number into a frame number; therefore the offset remains the same in both logical and physical addresses.
 
-#### 2. Largest offset and bits required
+2. **Largest offset and bits required:**
 
-Page size = 16 bytes
+   * Page size = 16 bytes
+   * Largest offset = 15
+   * Offset bits = log₂(16) = 4 bits
 
-Largest offset:
+3. **Internal Fragmentation**
 
-16 − 1 = 15
+   * Process size = 60 + a = 60 + 5 = 65 bytes
+   * Pages required = ceil(65 / 16) = 5 pages
+   * Allocated memory = 5 × 16 = 80 bytes
+   * Internal fragmentation = 80 − 65 = 15 bytes
 
-Bits required:
+## Part 1B — TLB & Effective Access Time (by Hand)
 
-log₂(16) = 4 bits
+### My Page Reference Stream
 
-**Answer:** Largest offset = **15**, Offset bits = **4 bits**
+Base stream:
+1 2 4 1 6 2 7 1 4 6
 
-#### 3. Internal Fragmentation
+a mod 8 = 5
 
-Process size:
+Since page 5 is invalid, replace it with 0.
 
-60 + a = 60 + 5 = 65 bytes
+My stream:
+0 2 4 1 6 2 7 1 4 6
 
-Pages required:
+### Prediction
 
-⌈65 / 16⌉ = 5 pages
+I expected only a few hits because the TLB starts empty and the stream accesses more than four distinct pages.
 
-Allocated memory:
+### TLB Trace
 
-5 × 16 = 80 bytes
+| Ref | Hit/Miss | Page Table Read? | TLB After (LRU→MRU) | Evicted |
+| --- | -------- | ---------------- | ------------------- | ------- |
+| 0   | MISS     | Yes              | [0]                 | -       |
+| 2   | MISS     | Yes              | [0,2]               | -       |
+| 4   | MISS     | Yes              | [0,2,4]             | -       |
+| 1   | MISS     | Yes              | [0,2,4,1]           | -       |
+| 6   | MISS     | Yes              | [2,4,1,6]           | 0       |
+| 2   | HIT      | No               | [4,1,6,2]           | -       |
+| 7   | MISS     | Yes              | [1,6,2,7]           | 4       |
+| 1   | HIT      | No               | [6,2,7,1]           | -       |
+| 4   | MISS     | Yes              | [2,7,1,4]           | 6       |
+| 6   | MISS     | Yes              | [7,1,4,6]           | 2       |
 
-Internal fragmentation:
+Measured hits = 2/10
 
-80 − 65 = 15 bytes
+α = 0.20
 
-**Answer:** 5 pages allocated, 15 bytes internal fragmentation.
+### Effective Access Time
 
----
+t_mem = 10 + a = 15 ns
 
-## Part A2 — Page Replacement (by Hand)
+t_tlb = 1 ns
+
+#### EAT at measured α
+
+EAT = α(t_tlb + t_mem) + (1 − α)(t_tlb + 2t_mem)
+
+= 0.20(1 + 15) + 0.80(1 + 30)
+
+= 0.20(16) + 0.80(31)
+
+= 3.2 + 24.8
+
+= 28 ns
+
+#### EAT at 80%
+
+= 0.80(16) + 0.20(31)
+
+= 12.8 + 6.2
+
+= 19 ns
+
+#### EAT at 99%
+
+= 0.99(16) + 0.01(31)
+
+= 15.84 + 0.31
+
+= 16.15 ns
+
+#### No TLB
+
+= 1 + 2(15)
+
+= 31 ns
+
+### Why 99% Beats No-TLB
+
+Percentage improvement:
+
+((31 − 16.15) / 31) × 100
+
+= 47.9%
+
+A 99% hit ratio is about 47.9% faster because almost every translation avoids the extra page-table memory access.
+
+![EAT](screenshots/part1_eat.png)
+
+![TLB](screenshots/part1_tlb.png)
+
+## Part 1C — Paging Simulator Verification
+
+![Translation](screenshots/task1_translation.png)
+
+* The simulator matched all calculations from Part 1A.
+* The simulator correctly identified pages 3 as invalid and produced page faults.
+* The optional TLB simulation reproduced the same hit ratio of 0.20 and EAT of 28 ns.
+
+## Part 2A — Page Replacement (By Hand)
 
 ### My Reference String
+
+a mod 7 = 5
+
+Reference string:
 
 5 0 1 2 0 3 0 4 2 3 0 3
 
 ### Prediction
 
-I predict that **LRU** will have fewer page faults than **FIFO** because LRU keeps recently used pages in memory, while FIFO only considers arrival order.
+I predicted that LRU would produce fewer page faults because it keeps recently used pages in memory.
 
----
+### FIFO Results
 
-### FIFO Trace
+FIFO faults: 10
 
-| Ref | H/F | F1 | F2 | F3 | Evicted |
-| --- | --- | -- | -- | -- | ------- |
-| 5   | F   | 5  | -  | -  | -       |
-| 0   | F   | 5  | 0  | -  | -       |
-| 1   | F   | 5  | 0  | 1  | -       |
-| 2   | F   | 2  | 0  | 1  | 5       |
-| 0   | H   | 2  | 0  | 1  | -       |
-| 3   | F   | 2  | 3  | 1  | 0       |
-| 0   | F   | 2  | 3  | 0  | 1       |
-| 4   | F   | 4  | 3  | 0  | 2       |
-| 2   | F   | 4  | 2  | 0  | 3       |
-| 3   | F   | 4  | 2  | 3  | 0       |
-| 0   | F   | 0  | 2  | 3  | 4       |
-| 3   | H   | 0  | 2  | 3  | -       |
+### LRU Results
 
-**Total FIFO Faults = 10**
+LRU faults: 9
 
----
+### Conclusion
 
-### LRU Trace
+LRU generated fewer page faults than FIFO, which matched my prediction.
 
-| Ref | H/F | F1 | F2 | F3 | Evicted |
-| --- | --- | -- | -- | -- | ------- |
-| 5   | F   | 5  | -  | -  | -       |
-| 0   | F   | 5  | 0  | -  | -       |
-| 1   | F   | 5  | 0  | 1  | -       |
-| 2   | F   | 2  | 0  | 1  | 5       |
-| 0   | H   | 2  | 0  | 1  | -       |
-| 3   | F   | 2  | 0  | 3  | 1       |
-| 0   | H   | 2  | 0  | 3  | -       |
-| 4   | F   | 4  | 0  | 3  | 2       |
-| 2   | F   | 4  | 0  | 2  | 3       |
-| 3   | F   | 4  | 3  | 2  | 0       |
-| 0   | F   | 0  | 3  | 2  | 4       |
-| 3   | H   | 0  | 3  | 2  | -       |
-
-**Total LRU Faults = 9**
-
-### Comparison
-
-FIFO produced 10 page faults while LRU produced 9 page faults. LRU performed better than FIFO and matched my prediction.
-
----
-
-## Part B — Simulator Verification
-
-![Translation](screenshots/task1_translation.png)
+## Part 2B — Demand-Paging Simulator Verification
 
 ![FIFO](screenshots/task2_fifo.png)
 
 ![LRU](screenshots/task2_lru.png)
 
-### Verification Results
+* The simulator produced the same page-fault totals as my hand calculations.
+* FIFO = 10 faults
+* LRU = 9 faults
+* No corrections were needed.
 
-* The simulator matched all entries in my A1 translation table.
-* The simulator produced the same FIFO and LRU fault counts as my hand traces.
-* FIFO faults = 10
-* LRU faults = 9
+## Part 3 — Applied Reasoning
 
-No discrepancies were found between the simulator and the manual calculations.
+### 1. Why is paging free of external fragmentation?
 
----
-
-## Part C — Applied Reasoning
-
-### 1. Why is paging free of external fragmentation while contiguous allocation is not?
-
-Paging divides memory into fixed-size pages and frames. Any free frame can hold any page, so memory does not become fragmented into unusable gaps. In contiguous allocation, a process needs one continuous block of memory, which can leave many small free spaces that cannot be used effectively.
+Paging divides memory into fixed-size pages and frames. Any free frame can store any page, so memory never becomes split into unusable gaps. Contiguous allocation requires one large continuous block, which can create external fragmentation.
 
 ### 2. Why does loading a page into an empty frame still count as a page fault?
 
-A page fault occurs whenever the requested page is not currently in memory. Even if an empty frame exists, the operating system must still fetch the page from disk into memory before execution can continue.
+The page is not currently in memory when it is referenced. The operating system must still load it from secondary storage, so a page fault occurs even if an empty frame is available.
 
-### 3. Why did LRU and FIFO differ on my reference string?
+### 3. Why does a 99% hit ratio matter so much?
 
-They differed because LRU considers recent usage while FIFO only considers arrival order. For example, page 0 was referenced multiple times. LRU kept recently used pages in memory, while FIFO sometimes removed pages simply because they had been loaded earlier.
+At 80% hits, EAT is 19 ns. At 99% hits, EAT is only 16.15 ns. The remaining misses are expensive because each miss requires an extra memory access. Reducing misses significantly improves overall performance.
 
-### 4. What is thrashing, and what would happen with only one frame?
+### 4. Why did FIFO and LRU differ?
 
-Thrashing occurs when the operating system spends most of its time swapping pages in and out of memory instead of executing processes. With only one frame, almost every page reference would cause a page fault because the working set requires multiple pages. System performance would become very poor.
+LRU considers recent usage while FIFO only considers arrival order. When page 0 was reused several times, LRU kept it in memory, but FIFO eventually evicted it because it had been loaded earlier.
 
-### 5. Give one benefit and one risk of demand paging.
+### 5. What is thrashing?
 
-**Benefit:** Memory is used more efficiently because only needed pages are loaded.
+Thrashing occurs when the operating system spends most of its time swapping pages instead of executing instructions. With only one frame, almost every reference would cause a page fault, leading to a very high page-fault rate and poor TLB performance.
 
-**Risk:** The first access to a page causes a page fault, which introduces delay while the page is loaded from secondary storage.
+### 6. Benefit and risk of demand paging
 
----
+Benefit: Memory is used efficiently because only needed pages are loaded.
 
-## Conclusion
-
-The activity demonstrated how logical addresses are translated into physical addresses using paging and how FIFO and LRU page replacement algorithms manage memory. The simulator results matched the hand calculations, confirming the correctness of the manual traces and reasoning.
+Risk: The first access to a page may trigger a page fault, causing delays and reducing performance.
