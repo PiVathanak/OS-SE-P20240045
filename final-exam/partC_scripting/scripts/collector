@@ -1,0 +1,17 @@
+#!/bin/bash
+dirs=("$HOME/collector_test/d1" "$HOME/collector_test/d2")
+outfile="$HOME/OS-SE-P20240045/final-exam/partC_scripting/collector_report.txt"
+> "$outfile"
+
+for d in "${dirs[@]}"; do
+    mkdir -p "$d"
+    for f in "$d"/*; do
+        if [[ -e "$f" && -r "$f" ]]; then
+            echo "--- $f ---" >> "$outfile"
+            cat "$f" >> "$outfile"
+        else
+            echo "Skipping unreadable/missing: $f" >> "$outfile"
+        fi
+    done
+done
+cat "$outfile"

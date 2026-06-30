@@ -1,0 +1,12 @@
+#!/bin/bash
+messages=("Stock looking healthy today." "Don't forget to check the logs." "OrbitWorks launch incoming!")
+user=$(whoami)
+logged_in=$(who | wc -l)
+up=$(uptime -p)
+rand_index=$((RANDOM % ${#messages[@]}))
+
+echo "=== OrbitWorks Status ==="
+echo "User: $user"
+echo "Logged-in users: $logged_in"
+echo "Uptime: $up"
+echo "Message: ${messages[$rand_index]}"

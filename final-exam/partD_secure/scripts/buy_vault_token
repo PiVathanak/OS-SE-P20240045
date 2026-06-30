@@ -1,0 +1,24 @@
+#!/bin/bash
+STOCK_FILE="$HOME/OS-SE-P20240045/final-exam/partD_secure/stock.txt"
+LOG_FILE="$HOME/OS-SE-P20240045/final-exam/partD_secure/sales.log"
+STUDENT_ID="p20240045"
+
+buyer="$1"
+qty="$2"
+
+if [[ -z "$buyer" || ! "$qty" =~ ^[0-9]+$ || "$qty" -le 0 ]]; then
+    echo "Usage: buy_vault_token <name> <positive integer qty>"
+    exit 1
+fi
+
+(
+  flock -x 200
+  stock=$(cat "$STOCK_FILE")
+  if (( qty <= stock )); then
+      new_stock=$((stock - qty))
+      echo "$new_stock" > "$STOCK_FILE"
+      echo "$(date '+%F %T') buyer=$buyer qty=$qty new_stock=$new_stock student=$STUDENT_ID" >> "$LOG_FILE"
+  else
+      echo "$(date '+%F %T') buyer=$buyer qty=$qty REJECTED insufficient_stock student=$STUDENT_ID" >> "$LOG_FILE"
+  fi
+) 200>"$STOCK_FILE.lock"

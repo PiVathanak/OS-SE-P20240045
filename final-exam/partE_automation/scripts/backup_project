@@ -1,0 +1,12 @@
+#!/bin/bash
+SRC="$HOME/OS-SE-P20240045/final-exam/partE_automation/sample_project"
+DEST="$HOME/OS-SE-P20240045/final-exam/partE_automation/backups"
+RETAIN=4
+mkdir -p "$DEST"
+
+ts=$(date '+%Y%m%d_%H%M%S')
+tar -czf "$DEST/backup_$ts.tar.gz" -C "$(dirname "$SRC")" "$(basename "$SRC")"
+
+ls -1t "$DEST"/backup_*.tar.gz | tail -n +$((RETAIN+1)) | xargs -r rm --
+echo "$(date '+%F %T') Backup created, retained $RETAIN archives" >> "$DEST/backup.log"
+ls -lh "$DEST"

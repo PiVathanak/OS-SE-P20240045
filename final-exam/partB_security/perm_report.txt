@@ -1,0 +1,31 @@
+-rw------- 1 se-pi-sereyvathanak se-pi-sereyvathanak 0 Jun 30 13:45 permtest/private.txt
+drwx--x--x 2 se-pi-sereyvathanak se-pi-sereyvathanak 4096 Jun 30 13:45 permtest/shared
+  File: permtest/private.txt
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 252,0	Inode: 47349033    Links: 1
+Access: (0600/-rw-------)  Uid: ( 1135/se-pi-sereyvathanak)   Gid: ( 1137/se-pi-sereyvathanak)
+Access: 2026-06-30 13:45:27.013035027 +0700
+Modify: 2026-06-30 13:45:02.095155765 +0700
+Change: 2026-06-30 13:45:24.176048920 +0700
+ Birth: 2026-06-30 13:45:02.095155765 +0700
+  File: permtest/shared
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 252,0	Inode: 47349032    Links: 2
+Access: (0711/drwx--x--x)  Uid: ( 1135/se-pi-sereyvathanak)   Gid: ( 1137/se-pi-sereyvathanak)
+Access: 2026-06-30 13:45:42.094960556 +0700
+Modify: 2026-06-30 13:45:02.093155774 +0700
+Change: 2026-06-30 13:45:35.683992336 +0700
+ Birth: 2026-06-30 13:45:02.093155774 +0700
+]633;E;echo "=== ls -l (note the + indicating ACL present) ===";121a8cca-0638-4258-be7f-83e909965f47]633;C=== ls -l (note the + indicating ACL present) ===
+-rw-r-----+ 1 se-pi-sereyvathanak se-pi-sereyvathanak 0 Jun 30 14:28 permtest/private.txt
+
+=== getfacl ===
+# file: permtest/private.txt
+# owner: se-pi-sereyvathanak
+# group: se-pi-sereyvathanak
+user::rw-
+user:se-pi-sereyvathanak:r--
+group::---
+mask::r--
+other::---
+

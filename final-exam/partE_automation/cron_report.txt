@@ -1,0 +1,99 @@
+]633;E;echo "=== crontab -l ===";121a8cca-0638-4258-be7f-83e909965f47]633;C=== crontab -l ===
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+# Lab10 heartbeat - runs every minute
+ * * * * * date '+\%Y-\%m-\%d \%H:\%M:\%S heartbeat' >> ~/os-lab-automation/logs/heartbeat.log 2>&1
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+ 30 15 16 6 * ~/bin/lab_session_job >> ~/os-lab-automation/logs/cron_session_job.log 2>&1
+
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+ 30 15 22 6 * ~/bin/deadline_job >> ~/os-lab-automation/logs/cron_deadline_job.log 2>&1
+# Lab10 file backup - every 2 minutes (TEST interval)
+ */2 * * * * ~/bin/backup_project >> ~/os-lab-automation/logs/cron_backup.log 2>&1
+
+# Lab10 maintenance - log rotation + health check, every 2 minutes (TEST interval)
+ */2 * * * * ~/bin/maintenance >> ~/os-lab-automation/logs/cron_maintenance.log 2>&1
+# Lab10 my own job - <describe what it does> (TEST interval)
+*/2 * * * * ~/bin/my_automation >> ~/os-lab-automation/logs/cron_my_automation.log 2>&1
+
+* * * * * /home/se-pi-sereyvathanak/bin/timed_job /home/se-pi-sereyvathanak/OS-SE-P20240045/final-exam/partE_automation/logs/cron_recurring.log
+
+35 14 * * * /home/se-pi-sereyvathanak/bin/timed_job /home/se-pi-sereyvathanak/OS-SE-P20240045/final-exam/partE_automation/logs/cron_oneshot.log
+
+=== cron_recurring.log ===
+
+=== cron_oneshot.log ===
+
+
+]633;E;echo "";121a8cca-0638-4258-be7f-83e909965f47]633;C
+=== crontab -l (after E3 entries added) ===
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+# Lab10 heartbeat - runs every minute
+ * * * * * date '+\%Y-\%m-\%d \%H:\%M:\%S heartbeat' >> ~/os-lab-automation/logs/heartbeat.log 2>&1
+# Lab10 GRADED session job - fires once at 2:30 PM on 2026-06-16 (lab session)
+ 30 15 16 6 * ~/bin/lab_session_job >> ~/os-lab-automation/logs/cron_session_job.log 2>&1
+
+# Lab10 GRADED deadline job - fires once at 2:30 PM on 2026-06-22 (before deadline)
+ 30 15 22 6 * ~/bin/deadline_job >> ~/os-lab-automation/logs/cron_deadline_job.log 2>&1
+# Lab10 file backup - every 2 minutes (TEST interval)
+ */2 * * * * ~/bin/backup_project >> ~/os-lab-automation/logs/cron_backup.log 2>&1
+
+# Lab10 maintenance - log rotation + health check, every 2 minutes (TEST interval)
+ */2 * * * * ~/bin/maintenance >> ~/os-lab-automation/logs/cron_maintenance.log 2>&1
+# Lab10 my own job - <describe what it does> (TEST interval)
+*/2 * * * * ~/bin/my_automation >> ~/os-lab-automation/logs/cron_my_automation.log 2>&1
+
+* * * * * /home/se-pi-sereyvathanak/bin/timed_job /home/se-pi-sereyvathanak/OS-SE-P20240045/final-exam/partE_automation/logs/cron_recurring.log
+
+35 14 * * * /home/se-pi-sereyvathanak/bin/timed_job /home/se-pi-sereyvathanak/OS-SE-P20240045/final-exam/partE_automation/logs/cron_oneshot.log
+
+*/2 * * * * /home/se-pi-sereyvathanak/bin/backup_exam
+
+0 16 * * * /home/se-pi-sereyvathanak/bin/backup_exam
+
+=== ~/exam-backups listing ===
+total 268K
+-rw-rw-r-- 1 se-pi-sereyvathanak se-pi-sereyvathanak 268K Jun 30 14:16 final-exam-20260630_141639.tar.gz

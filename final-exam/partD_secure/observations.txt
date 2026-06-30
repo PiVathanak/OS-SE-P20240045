@@ -1,0 +1,18 @@
+Unpatched swarm runs (stock=150, buyers=50, qty=1 each, expected final stock=100):
+
+Run 1: Final stock: 139
+Run 2: Final stock: 143
+Run 3: Final stock: 137
+Run 4: Final stock: 135
+
+Observation: every unpatched run lands well above the correct value of 100, and the
+final stock differs between runs despite identical starting conditions and identical
+input (50 buyers each purchasing 1 unit). This is the signature of a lost-update race
+condition: many of the 50 concurrent buy_vault_token processes read the same stale
+stock value before any of them wrote their decrement back, so only some decrements
+were actually reflected in the final value — roughly 11-15 of the 50 purchases were
+"lost" per run instead of all 50 being applied.
+
+D3 patch (flock-based exclusive lock) re-run below — final stock should land at
+exactly 100 every time once the critical section (read-modify-write) is wrapped in
+a single exclusive lock.

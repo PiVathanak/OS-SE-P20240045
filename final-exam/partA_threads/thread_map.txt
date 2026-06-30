@@ -1,0 +1,7 @@
+se-chum+ 1470819 1467843 1470819  0    1 13:40 pts/37   00:00:00 nano thread_demo.c
+se-chea+ 1472744 1444198 1472744  0    5 13:41 pts/8    00:00:00 ./partA_threads/thread_demo
+se-chea+ 1472744 1444198 1472745  0    5 13:41 pts/8    00:00:00 ./partA_threads/thread_demo
+se-chea+ 1472744 1444198 1472746  0    5 13:41 pts/8    00:00:00 ./partA_threads/thread_demo
+se-chea+ 1472744 1444198 1472747  0    5 13:41 pts/8    00:00:00 ./partA_threads/thread_demo
+se-chea+ 1472744 1444198 1472748  0    5 13:41 pts/8    00:00:00 ./partA_threads/thread_demo
+se-pi-s+ 1473061 1465092 1473061  0    1 13:41 pts/7    00:00:00 grep --color=auto thread_demo

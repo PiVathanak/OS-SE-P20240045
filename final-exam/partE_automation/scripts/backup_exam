@@ -1,0 +1,6 @@
+#!/bin/bash
+SRC="$HOME/OS-SE-P20240045/final-exam"
+DEST="$HOME/exam-backups"
+mkdir -p "$DEST"
+ts=$(date '+%Y%m%d_%H%M%S')
+tar -czf "$DEST/final-exam-$ts.tar.gz" -C "$(dirname "$SRC")" "$(basename "$SRC")"

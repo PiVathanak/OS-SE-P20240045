@@ -1,0 +1,10 @@
+#!/bin/bash
+STOCK_FILE="$HOME/OS-SE-P20240045/final-exam/partD_secure/stock.txt"
+echo 150 > "$STOCK_FILE"
+
+for i in $(seq 1 50); do
+    buy_vault_token "buyer$i" 1 &
+done
+wait
+
+echo "Final stock: $(cat "$STOCK_FILE")"
